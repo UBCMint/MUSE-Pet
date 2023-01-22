@@ -27,7 +27,8 @@ router.post('/', async(req,res) => {
         name: req.body.name,
         happinessLevel: req.body.happinessLevel,
         isDead: req.body.isDead,
-        birthDate: req.body.birthDate
+        birthDate: req.body.birthDate,
+        isSick: req.body.isSick
     })
 
     try {
@@ -38,6 +39,7 @@ router.post('/', async(req,res) => {
     }
 })
 
+//TODO be able to edit more aspects of the model
 router.patch('/:id', async(req,res) => {
     try {
         const pet = await Pet.findById(req.params.id) 

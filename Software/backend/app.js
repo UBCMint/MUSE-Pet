@@ -13,7 +13,7 @@ con.on('open', () => {
 
 app.use(express.json())
 
-const alienRouter = require('./routes/pet')
+const petRouter = require('./routes/pet')
 app.use('/pet', petRouter)
 
 app.listen(9000, () => {

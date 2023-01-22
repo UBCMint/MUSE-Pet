@@ -11,7 +11,8 @@ const petSchema = new mongoose.Schema({
         type: Number,
         min: 0,
         max: 100,
-        required: true
+        required: true,
+        default: 50
     },
     isDead: { // TODO: if too old, it dies, map age to prob to die
         type: Boolean,
@@ -19,7 +20,7 @@ const petSchema = new mongoose.Schema({
         default: false
     },
     birthDate: {
-        date: Date,
+        type: Date,
         required: true,
         default: Date.now()
     },

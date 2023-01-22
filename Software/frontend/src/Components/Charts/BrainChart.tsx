@@ -11,6 +11,8 @@ import {
 import { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
+  
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -20,21 +22,25 @@ ChartJS.register(
   Legend
 );
 
+type ChartProps = {
+  data: number[];
+};
+
 //Only works with static data for now
-export const BrainChart: React.FC<{}> = () => {
+export const BrainChart: React.FC<ChartProps> = (props) => {
   const labels = ['Delta', 'Theta', 'Alpha', 'Sigma', 'Beta'];
   const [data, setData] = useState({
     labels: labels,
     datasets: [{
       label: 'Brainwaves',
-      data: [40, 50, 60, 70, 80],
+      data: props.data,
       backgroundColor: [
         'rgb(255, 255, 255)'
       ],
       borderColor: [
-        'rgb(0, 0, 0)'
+        'rgb(255, 255, 255)'
       ],
-      borderWidth: 1
+      borderWidth: 5
     }]
   });
 

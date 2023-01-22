@@ -1,7 +1,25 @@
-const http = require('http');
+const express = require('express')
+const mongoose = require('mongoose')
+const url = 'mongodb://localhost/PetDBex'
 
-const server = http.createServer((request, response) => {
-  response.end('Hey! This is your server response!');
-});
+const app = express()
 
-server.listen(3000);
+mongoose.connect(url, {useNewUrlParser:true})
+const con = mongoose.connection
+
+// con.on("open", function(){
+//     console.log("connected...")
+// })
+
+con.on("open", () => {
+    console.log("connected...")
+})
+
+app.use(express.json())
+
+const petRouter = require('./routes/pets')
+app.use('/pets', petRouter)
+
+app.listen(9000, () => {
+    console.log("server started")
+})

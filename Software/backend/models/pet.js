@@ -11,6 +11,7 @@ const petSchema = new mongoose.Schema({
         type: Number,
         min: 0,
         max: 100,
+        default: 50,
         required: true
     },
     isSick: {
@@ -18,16 +19,18 @@ const petSchema = new mongoose.Schema({
         required: true,
         default: false
     },
-    isDead: {
+    isDead: { // TODO: if too old, it dies, map age to prob to die
         type: Boolean,
         required: true,
         default: false
     },
     birthday: {
         type: Date,
-        // date: Date,
-        required: true
+        required: true,
+        default: Date.now()
     }
+
+    // TODO: look into schema validation
 
 })
 

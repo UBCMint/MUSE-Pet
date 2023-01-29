@@ -39,7 +39,6 @@ router.post('/', async(req,res) => {
     }
 })
 
-//TODO be able to edit more aspects of the model
 router.patch('/:id', async(req,res) => {
     try {
         const pet = await Pet.findByIdAndUpdate(req.params.id, req.body)
@@ -48,7 +47,6 @@ router.patch('/:id', async(req,res) => {
     } catch(err) {
         res.send('Error')
     }
-
 })
 
 module.exports = router

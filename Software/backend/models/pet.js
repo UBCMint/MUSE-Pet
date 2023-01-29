@@ -14,6 +14,20 @@ const petSchema = new mongoose.Schema({
         default: 50,
         required: true
     },
+    hungerLevel: {
+        type: Number,
+        min: 0,
+        max: 100,
+        default: 50,
+        required: true
+    },
+    healthPoints: {
+        type: Number,
+        min: 0,
+        max: 100,
+        default: 100,
+        required: true
+    },
     isSick: {
         type: Boolean,
         required: true,

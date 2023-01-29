@@ -24,6 +24,8 @@ router.post('/', async(req,res) => {
     const pet = new Pet({
         name: req.body.name,
         happinessLevel: req.body.happinessLevel,
+        hungerLevel: req.body.hungerLevel,
+        healthPoints: req.body.healthPoints,
         isSick: req.body.isSick,
         isDead: req.body.isDead, 
         birthday: req.body.birthday
@@ -40,8 +42,7 @@ router.post('/', async(req,res) => {
 // TODO: edit more things
 router.patch('/:id', async(req, res) => {
     try {
-        const pet = await Pet.findById(req.params.id) 
-        pet.isDead = req.body.isDead
+        const pet = await Pet.findByIdAndUpdate(req.params.id, req.body);
         const p1 = await pet.save()
         res.json(p1)
     } catch(error) {

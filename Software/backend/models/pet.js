@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 
-
 const petSchema = new mongoose.Schema({
 
     name: {

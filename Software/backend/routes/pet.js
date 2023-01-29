@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const Pet = require('../models/pet')
 
-
 router.get('/', async(req,res) => {
     try {
         const pets = await Pet.find()

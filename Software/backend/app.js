@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const mongoose = require('mongoose')
 const url = 'mongodb://localhost/PetDBex'
 
@@ -11,6 +12,7 @@ con.on('open', () => {
     console.log('connected...')
 })
 
+app.use(cors())
 app.use(express.json())
 
 const petRouter = require('./routes/pet')

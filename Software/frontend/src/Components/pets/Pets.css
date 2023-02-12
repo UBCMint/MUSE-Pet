@@ -27,3 +27,7 @@
     right: 4.5%;
     top: 2.7em;
 }
+
+.pets .header button:hover {
+    cursor: pointer;
+}

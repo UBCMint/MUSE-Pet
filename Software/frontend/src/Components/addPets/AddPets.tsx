@@ -1,19 +1,19 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import PetModel from '../../Models/PetModel'
 import './AddPets.css'
 import PetListModel from '../../Models/PetListModel'
+import { request } from 'http'
+import { parseJsonText } from 'typescript'
 
 const AddPets: React.FC<{}> = () => {
     const [name, setName]: [string, (name: string) => void] = useState("")
     const [tirednessLevel, setTirednessLevel]: [number, (tirednessLevel: number) => void] = useState(0)
 
-    const handleSubmit = () => {
-        return async (event: React.MouseEvent) => {
-            event.preventDefault()  // prevent submitting default/empty form
-            const request = await axios.post<PetListModel>('http://localhost:9000/pet', {name: name, focusLevel: tirednessLevel})
-        }
+    const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()  // prevent submitting default/empty form
+        const request = await axios.post('http://localhost:9000/pet', { name: name, focusLevel: tirednessLevel })
     }
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {

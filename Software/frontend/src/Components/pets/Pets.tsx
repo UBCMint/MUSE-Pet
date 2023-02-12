@@ -18,8 +18,14 @@ const Pets: React.FC<{}> = () => {
 
     return (
         <div className="pets">
+            <div className='header'>
+                <h1>Tamagochis</h1>
+                <button>+ Create Pet</button>
+            </div>
             {pets.map((pet, index) => {
-                return <h1>r</h1>
+                return (
+                    <Pet />
+                )
             })}
         </div>
     )

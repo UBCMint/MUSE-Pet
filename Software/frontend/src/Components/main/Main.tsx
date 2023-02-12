@@ -7,7 +7,7 @@ const Main: React.FC<{}> = () => {
     <div className="main">
         <h1>MINT Tamagochis</h1>
         <Link to='/pets'>
-            <button>Get Started</button>
+            <button id='mainButton'>Get Started</button>
         </Link>
     </div>
     )

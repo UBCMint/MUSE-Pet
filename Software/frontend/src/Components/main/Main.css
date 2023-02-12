@@ -16,12 +16,12 @@
     transform: translateX(-50%);
 }
 
-.main button {
+#mainButton {
     color: white;
     background-color: #32cec6;
     border: none;
     border-radius: 0.5em;
-    padding: 1%;
+    padding: 0.5em;
     position: fixed;
     font-size: 2em;
     bottom: 20%;

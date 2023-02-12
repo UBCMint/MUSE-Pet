@@ -4,11 +4,11 @@ import './Pet.css'
 
 const Pet: React.FC<{}> = () => {
     return (
-    <div className="main">
-        <h1>MINT Tamagochis</h1>
-        <Link to='/pets'>
-            <button>Get Started</button>
+    <div className="pet">
+        <Link to='/pet' style={{ textDecoration: 'none' }}>
+            <h2>Tamagochi</h2>
         </Link>
+        <progress value="10" max="50"></progress>
     </div>
     )
 }

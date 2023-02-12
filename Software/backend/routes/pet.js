@@ -20,10 +20,10 @@ router.get('/:id', async(req,res) => {
     }
 })
 
-
 router.post('/', async(req,res) => {
     const pet = new Pet({
         name: req.body.name,
+        focusLevel: req.body.focusLevel,
         happinessLevel: req.body.happinessLevel,
         isDead: req.body.isDead,
         birthDate: req.body.birthDate,

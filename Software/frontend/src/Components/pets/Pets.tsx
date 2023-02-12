@@ -22,7 +22,9 @@ const Pets: React.FC<{}> = () => {
         <div className="pets">
             <div className='header'>
                 <h1>Tamagochis</h1>
-                <button>+ Create Pet</button>
+                <Link to='/addPets' style={{ textDecoration: 'none' }}>
+                    <button>+ Create Pet</button>
+                </Link>
             </div>
             {pets.map((pet) => {
                 return (

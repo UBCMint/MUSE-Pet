@@ -10,7 +10,7 @@ const Pet: React.FC<PetListModel> = (props) => {
             <h2>{props.name}</h2>
         </Link>
         <h5>Focus Level: {props.focusLevel}</h5>
-        <progress value={props.focusLevel} max="100">10</progress>
+        <progress value={props.focusLevel} max="100"></progress>
     </div>
     )
 }

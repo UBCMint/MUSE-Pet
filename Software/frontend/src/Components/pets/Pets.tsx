@@ -3,12 +3,14 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Pet from './pet/Pet'
 import './Pets.css'
+import PetListModel from '../../Models/PetListModel'
 
 const Pets: React.FC<{}> = () => {
-    const [pets, setPets] = useState([])
+    const defaultPets: PetListModel[] = []
+    const [pets, setPets]: [PetListModel[], (pets: PetListModel[]) => void] = useState(defaultPets)
 
     const getPets = async () => {
-        const response = await axios.get('http://localhost:9000/pet')
+        const response = await axios.get<PetListModel[]>('http://localhost:9000/pet')
         setPets(response.data)
     }
 
@@ -22,9 +24,13 @@ const Pets: React.FC<{}> = () => {
                 <h1>Tamagochis</h1>
                 <button>+ Create Pet</button>
             </div>
-            {pets.map((pet, index) => {
+            {pets.map((pet) => {
                 return (
-                    <Pet />
+                    <Pet 
+                        _id={pet._id}
+                        name={pet.name}
+                        focusLevel={pet.focusLevel}
+                    />
                 )
             })}
         </div>

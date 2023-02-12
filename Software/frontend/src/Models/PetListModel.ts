@@ -1,6 +1,7 @@
 interface PetListModel {
-    name: string;
-    focusLevel: number;
+    _id: string,
+    name: string,
+    focusLevel: number
 }
 
 export default PetListModel

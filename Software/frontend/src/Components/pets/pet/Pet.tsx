@@ -8,7 +8,8 @@ const Pet: React.FC<{}> = () => {
         <Link to='/pet' style={{ textDecoration: 'none' }}>
             <h2>Tamagochi</h2>
         </Link>
-        <progress value="10" max="50"></progress>
+        <h5>Focus Level: {50}</h5>
+        <progress value="50" max="100">10</progress>
     </div>
     )
 }

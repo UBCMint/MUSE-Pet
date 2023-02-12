@@ -8,6 +8,11 @@
     background-color: white;
 }
 
+.pet h5 {
+    position: fixed;
+    right: calc(7% + 180px);
+}
+
 .pet h2 {
     color: black;
     text-decoration: none;
@@ -20,7 +25,21 @@
     margin-left: 1em;
 }
 
-.pet progress {
+progress {
+    margin-top: 1px;
+    height: 10px;
+    -webkit-appearance: none;
     position: fixed;
     right: 7%;
 }
+
+progress::-webkit-progress-bar { 
+    background-color: #f1f1f1; 
+    border-radius: 5px; 
+}
+
+progress::-webkit-progress-value { 
+    background-color: #32cec6; 
+    border-radius: 5px;
+}
+

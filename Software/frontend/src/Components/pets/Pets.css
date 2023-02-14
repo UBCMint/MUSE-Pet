@@ -17,14 +17,14 @@
 }
 
 .pets .header button {
+    position: fixed;
     font-size: 1em;
     color: white;
     background-color: #32cec6;
     border: none;
     border-radius: 0.5em;
     padding: 1em;
-    position: absolute;
-    right: 4.5%;
+    right: calc(1em + 4.5%);
     top: 2.7em;
 }
 

@@ -23,6 +23,7 @@
 .formContent {
     text-align: left;
     margin-left: 2em;
+    margin-right: 4em;
 }
 
 .formContent input {
@@ -30,7 +31,7 @@
     border-radius: 1em;
     padding: 0.5em 1em;
     height: 30px;
-    width: 650px;
+    width: 100%;
 }
 
 .formButtons {

@@ -9,21 +9,15 @@ import { parseJsonText } from 'typescript'
 
 const AddPets: React.FC<{}> = () => {
     const [name, setName]: [string, (name: string) => void] = useState("")
-    const [tirednessLevel, setTirednessLevel]: [number, (tirednessLevel: number) => void] = useState(0)
 
     const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()  // prevent submitting default/empty form
-        const request = await axios.post('http://localhost:9000/pet', { name: name, focusLevel: tirednessLevel })
+        const request = await axios.post('http://localhost:9000/pet', { name: name })
     }
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const tempName = event.target.value;
         setName(tempName);
-    }
-
-    const handleTirednessLevelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const tempTirednessLevel = parseInt(event.target.value);
-        setTirednessLevel(tempTirednessLevel);
     }
 
     return (
@@ -33,14 +27,14 @@ const AddPets: React.FC<{}> = () => {
                 <div className='formContent'>
                     <h3>Name</h3>
                     <input onChange={handleNameChange}></input>
-                    <h3>Tiredness Level</h3>
-                    <input onChange={handleTirednessLevelChange}></input>
                 </div>
                 <div className='formButtons'>
                     <Link to='/pets'>
                         <button id='cancelButton'>Back</button>
                     </Link>
-                    <button id='createButton' onClick={handleSubmit}>Create</button>
+                    <Link to='/pet'>
+                        <button id='createButton' onClick={handleSubmit}>Create</button>
+                    </Link>
                 </div>
             </div>
         </div>

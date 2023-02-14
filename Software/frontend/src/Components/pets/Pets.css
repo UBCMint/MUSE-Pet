@@ -1,7 +1,7 @@
 .pets {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
     background-image: url("../../../public/main.png");
     background-size: cover;
     background-repeat: no-repeat;

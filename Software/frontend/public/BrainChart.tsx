@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import React from 'react';
 import { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
@@ -26,7 +27,7 @@ type ChartProps = {
 
 //Only works with static data for now
 export const BrainChart: React.FC<ChartProps> = (props) => {
-  const labels = ['Delta', 'Theta', 'Alpha', 'Sigma', 'Beta'];
+  const labels = ['Gamma', 'Beta', 'Alpha', 'Theta', 'Delta'];
   const [data, setData] = useState({
     labels: labels,
     datasets: [{

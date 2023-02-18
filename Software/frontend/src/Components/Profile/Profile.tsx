@@ -16,16 +16,18 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
+import { PetNavBar } from '../NavBar/NavBar';
 
 export const Profile = () => {
   return (
     <section style={{ backgroundColor: '#eee' }}>
+      <PetNavBar />
       <MDBContainer className="py-5">
         <MDBRow>
           <MDBCol>
             <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
               <MDBBreadcrumbItem>
-                <Link to="/">Home</Link>
+                <Link to="/pets">Home</Link>
               </MDBBreadcrumbItem>
               <MDBBreadcrumbItem>
               <Link to="/profile">Profile</Link>

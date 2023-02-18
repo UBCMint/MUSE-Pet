@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import PetModel from '../../Models/PetModel'
+import { PetNavBar } from '../NavBar/NavBar'
 import './AddPets.css'
 import PetListModel from '../../Models/PetListModel'
 import { request } from 'http'
@@ -21,6 +22,9 @@ const AddPets: React.FC<{}> = () => {
     }
 
     return (
+        <div>
+            <PetNavBar />
+        
         <div className="addPets">
             <div className='form'>
                 <h1>Create a New Pet</h1>
@@ -38,6 +42,7 @@ const AddPets: React.FC<{}> = () => {
                 </div>
             </div>
         </div>
+    </div>
     )
 }
 

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import Pet from './pet/Pet'
 import './Pets.css'
 import PetListModel from '../../Models/PetListModel'
+import { PetNavBar } from '../NavBar/NavBar'
+
 
 const Pets: React.FC<{}> = () => {
     const defaultPets: PetListModel[] = []
@@ -19,22 +21,25 @@ const Pets: React.FC<{}> = () => {
     }, [])
 
     return (
-        <div className="pets">
-            <div className='header'>
-                <h1>Tamagochis</h1>
+        <div>
+            <PetNavBar />
+            <div className="pets">
+                <div className='header'>
+                    <h1>Tamagochis</h1>
+                </div>
+                {pets.map((pet) => {
+                    return (
+                        <Pet
+                            _id={pet._id}
+                            name={pet.name}
+                            focusLevel={pet.focusLevel}
+                        />
+                    )
+                })}
                 <Link to='/addPets' style={{ textDecoration: 'none' }}>
-                    <button>+ Create Pet</button>
+                    <button>Create Pet</button>
                 </Link>
             </div>
-            {pets.map((pet) => {
-                return (
-                    <Pet 
-                        _id={pet._id}
-                        name={pet.name}
-                        focusLevel={pet.focusLevel}
-                    />
-                )
-            })}
         </div>
     )
 }

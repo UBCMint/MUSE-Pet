@@ -16,16 +16,15 @@
     font-size: 3em;
 }
 
-.pets .header button {
-    position: fixed;
-    font-size: 1em;
+.pets button {
+    font-size: 1.2em;
+    /* font-weight: bold; */
     color: white;
     background-color: #32cec6;
     border: none;
     border-radius: 0.5em;
-    padding: 1em;
-    right: calc(1em + 4.5%);
-    top: 2.7em;
+    padding: 0.5em;
+    margin: 0.5em;
 }
 
 .pets .header button:hover {

@@ -20,10 +20,10 @@ router.get('/:id', async(req,res) => {
     }
 })
 
-
 router.post('/', async(req,res) => {
     const pet = new Pet({
         name: req.body.name,
+        focusLevel: req.body.focusLevel,
         happinessLevel: req.body.happinessLevel,
         isDead: req.body.isDead,
         birthDate: req.body.birthDate,
@@ -38,17 +38,14 @@ router.post('/', async(req,res) => {
     }
 })
 
-//TODO be able to edit more aspects of the model
 router.patch('/:id', async(req,res) => {
     try {
-        const pet = await Pet.findById(req.params.id) 
-        pet.isDead = req.body.isDead
+        const pet = await Pet.findByIdAndUpdate(req.params.id, req.body)
         const a1 = await pet.save()
         res.json(a1)   
     } catch(err) {
         res.send('Error')
     }
-
 })
 
 module.exports = router

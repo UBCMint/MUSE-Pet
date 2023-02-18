@@ -1,0 +1,30 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("../../../public/main.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main h1 {
+    font-size: 5em;
+    color: #32cec6;
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#mainButton {
+    color: white;
+    background-color: #32cec6;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    position: fixed;
+    font-size: 2em;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}

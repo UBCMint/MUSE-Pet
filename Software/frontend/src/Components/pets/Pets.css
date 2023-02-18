@@ -1,0 +1,33 @@
+.pets {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-image: url("../../../public/main.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.pets .header {
+    display: flex;
+    justify-content: center;
+}
+
+.pets .header h1 {
+    font-size: 3em;
+}
+
+.pets .header button {
+    position: fixed;
+    font-size: 1em;
+    color: white;
+    background-color: #32cec6;
+    border: none;
+    border-radius: 0.5em;
+    padding: 1em;
+    right: calc(1em + 4.5%);
+    top: 2.7em;
+}
+
+.pets .header button:hover {
+    cursor: pointer;
+}

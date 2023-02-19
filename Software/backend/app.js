@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-const url = 'mongodb+srv://jtstripes95:qOcYd9VzNMe74fhJ@cluster0.yyyz5zh.mongodb.net/?retryWrites=true&w=majority'
+const url = 'mongodb://localhost/PetDBex'
 const app = express()
 
 const connect = async () => {

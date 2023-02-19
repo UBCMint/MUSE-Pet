@@ -55,6 +55,8 @@
 
 #cancelButton:hover {
     cursor: pointer;
+    color: white;
+    background-color: rgb(173, 167, 167);
 }
 
 #createButton {
@@ -71,4 +73,6 @@
 
 #createButton:hover {
     cursor: pointer;
+    color: white;
+    background-color: aqua;
 }

@@ -8,7 +8,7 @@ const Main: React.FC<{}> = () => {
     <div className="main">
         <h1>MINT Tamagochis</h1>
         <Link to='/pets'>
-            <Button id='mainButton' variant='info'>Get Started</Button>
+            <Button id='mainButton' variant='info'>Start</Button>
         </Link>
     </div>
     )

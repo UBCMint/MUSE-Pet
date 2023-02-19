@@ -7,6 +7,7 @@ import './AddPets.css'
 import PetListModel from '../../Models/PetListModel'
 import { request } from 'http'
 import { parseJsonText } from 'typescript'
+import Button from 'react-bootstrap/Button';
 
 const AddPets: React.FC<{}> = () => {
     const [name, setName]: [string, (name: string) => void] = useState("")

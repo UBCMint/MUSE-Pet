@@ -11,14 +11,15 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const PetNavBar: React.FC<{}> = () => {
-    const defaultPets: PetListModel[] = []
+    const defaultPets: PetListModel[] = [];
     const [pets, setPets]: [PetListModel[], (pets: PetListModel[]) => void] = useState(defaultPets)
 
     const getPets = async () => {
         const response = await axios.get<PetListModel[]>('http://localhost:9000/pet')
         setPets(response.data)
+        localStorage.setItem('pets', JSON.stringify(response.data))  // save to local storage
     }
-
+    
     useEffect(() => {
         getPets()
     }, [])
@@ -30,7 +31,7 @@ export const PetNavBar: React.FC<{}> = () => {
                     <Navbar.Brand
                         style={{ color: 'white' }}
                     >Hello {
-                            pets[0] ? `${pets[0].name}` : 'MINT Member'
+                            JSON.parse(localStorage.getItem('pets') || '[]')[0]?.name
                         } 👋
                     </Navbar.Brand>
                 </Link>

@@ -16,8 +16,7 @@
     transform: translateX(-50%);
 }
 
-#mainButton {
-    color: white;
+.main button {
     background-color: #32cec6;
     border: none;
     border-radius: 0.5em;

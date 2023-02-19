@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import Pet from './pet/Pet'
 import './Pets.css'
 import PetListModel from '../../Models/PetListModel'
-import { PetNavBar } from '../NavBar/NavBar'
-
+import PetNavBar from '../NavBar/NavBar'
+import Button from 'react-bootstrap/Button'
 
 const Pets: React.FC<{}> = () => {
     const defaultPets: PetListModel[] = []
@@ -37,7 +37,7 @@ const Pets: React.FC<{}> = () => {
                     )
                 })}
                 <Link to='/addPets' style={{ textDecoration: 'none' }}>
-                    <button>Create Pet</button>
+                    <Button variant='info'>Create Pet</Button>
                 </Link>
             </div>
         </div>

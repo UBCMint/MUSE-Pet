@@ -1,3 +1,7 @@
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import PetListModel from '../../Models/PetListModel';
+
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -6,15 +10,27 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const PetNavBar = () => {
+export const PetNavBar: React.FC<{}> = () => {
+    const defaultPets: PetListModel[] = []
+    const [pets, setPets]: [PetListModel[], (pets: PetListModel[]) => void] = useState(defaultPets)
+
+    const getPets = async () => {
+        const response = await axios.get<PetListModel[]>('http://localhost:9000/pet')
+        setPets(response.data)
+    }
+
+    useEffect(() => {
+        getPets()
+    }, [])
+
     return (
         <Navbar bg="grey" expand="lg">
             <Container fluid>
                 <Link to="/" style={{ color: 'black', textDecoration: 'none' }}>
                     <Navbar.Brand
                         style={{ color: 'white' }}
-                    >Hello Mint{
-                            // name of user goes here, to be passed in as a prop
+                    >Hello {
+                            pets[0] ? `${pets[0].name}` : 'MINT Member'
                         } 👋
                     </Navbar.Brand>
                 </Link>
@@ -25,12 +41,8 @@ export const PetNavBar = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Link to="/profile" style={{
-                            color: 'white', textDecoration: 'none'
-                        }}>Profile</Link>
-                        <Link to="/pets" style={{
-                            color: 'white', textDecoration: 'none'
-                        }}>Pets</Link>
+                        <Nav.Link as={Link} to="/profile" style={{ color: 'grey'}}>Profile</Nav.Link>
+                        <Nav.Link as={Link} to="/pets" style={{ color: 'grey'}}>My Pets</Nav.Link>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control
@@ -53,5 +65,7 @@ export const PetNavBar = () => {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-    );
-};
+    )
+}
+
+export default PetNavBar

@@ -1,8 +1,5 @@
-import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 import './Pet.css'
-import PetListModel from '../../../Models/PetListModel'
 import Button from 'react-bootstrap/Button'
 import { BsFillTrashFill } from 'react-icons/bs'
 

@@ -16,11 +16,12 @@ const Pets: React.FC<{}> = () => {
         setPets(response.data)
     }
 
-    // const handleDelete = async (id: string) => {
-    //     // event.preventDefault()
-    //     console.log(id)
-    //     await axios.delete('http://localhost:9000/pet/' + id)
-    // }
+    const handleDelete = async (props: { _id: string }, event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+        console.log(props._id)
+        await axios.delete('http://localhost:9000/pet/' + props._id)
+        getPets()
+    }
 
     useEffect(() => {
         getPets()
@@ -33,15 +34,14 @@ const Pets: React.FC<{}> = () => {
                 <div className='header'>
                     <h1>Tamagochis</h1>
                 </div>
-                {pets.map((pet) => {
-                    return (
-                        <Pet
-                            _id={pet._id}
-                            name={pet.name}
-                            focusLevel={pet.focusLevel}
-                        />
-                    )
-                })}
+                {pets.map((pet) => (
+                    <Pet 
+                        _id={pet._id}
+                        name={pet.name}
+                        focusLevel={pet.focusLevel}
+                        handleDelete={handleDelete}
+                    />
+                ))}
                 <Link to='/addPets' style={{ textDecoration: 'none' }}>
                     <Button variant='info'>Create Pet</Button>
                 </Link>

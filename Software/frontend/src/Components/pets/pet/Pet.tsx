@@ -6,13 +6,14 @@ import PetListModel from '../../../Models/PetListModel'
 import Button from 'react-bootstrap/Button'
 import { BsFillTrashFill } from 'react-icons/bs'
 
-const Pet: React.FC<PetListModel> = (props) => {
+interface Props {
+    _id: string
+    name: string
+    focusLevel: number
+    handleDelete: (props: { _id: string }, event: React.MouseEvent<HTMLButtonElement>) => void
+}
 
-    const handleDelete = async (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault()
-        console.log(props._id)
-        await axios.delete('http://localhost:9000/pet/' + props._id)
-    }
+const Pet: React.FC<Props> = (props) => {
 
     return (
     <div className="pet">
@@ -23,7 +24,13 @@ const Pet: React.FC<PetListModel> = (props) => {
             <h5>Focus Level: {props.focusLevel}</h5>
             <progress value={props.focusLevel} max="100"></progress>
         </div>
-        <Button onClick={handleDelete} variant="danger"><BsFillTrashFill /></Button>
+        <div className='deleteButton'>
+            <Button onClick={
+                (event: React.MouseEvent<HTMLButtonElement>) => {
+                    props.handleDelete(props, event)
+                }
+             } variant="danger"><BsFillTrashFill /></Button>
+        </div>
     </div>
     )
 }

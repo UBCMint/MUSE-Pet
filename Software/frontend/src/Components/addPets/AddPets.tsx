@@ -15,6 +15,7 @@ const AddPets: React.FC<{}> = () => {
     const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()  // prevent submitting default/empty form
         const request = await axios.post('http://localhost:9000/pet', { name: name })
+        console.log(request)
     }
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +26,6 @@ const AddPets: React.FC<{}> = () => {
     return (
         <div>
             <PetNavBar />
-        
         <div className="addPets">
             <div className='form'>
                 <h1>Create a New Pet</h1>
@@ -37,7 +37,7 @@ const AddPets: React.FC<{}> = () => {
                     <Link to='/pets'>
                         <button id='cancelButton'>Back</button>
                     </Link>
-                    <Link to='/pet'>
+                    <Link to='/pets'>
                         <button id='createButton' onClick={handleSubmit}>Create</button>
                     </Link>
                 </div>

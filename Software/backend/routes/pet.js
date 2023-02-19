@@ -48,4 +48,13 @@ router.patch('/:id', async(req,res) => {
     }
 })
 
+router.delete('/:id', async(req,res) => {
+    try {
+        const pet = await Pet.findByIdAndDelete(req.params.id)
+        res.json(pet)
+    } catch(err) {
+        res.send('Error')
+    }
+})
+
 module.exports = router

@@ -16,6 +16,12 @@ const Pets: React.FC<{}> = () => {
         setPets(response.data)
     }
 
+    // const handleDelete = async (id: string) => {
+    //     // event.preventDefault()
+    //     console.log(id)
+    //     await axios.delete('http://localhost:9000/pet/' + id)
+    // }
+
     useEffect(() => {
         getPets()
     }, [])

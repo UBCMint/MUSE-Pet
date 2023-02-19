@@ -5,7 +5,6 @@ import Main from './Components/main/Main'
 import Pets from './Components/pets/Pets';
 import AddPets from './Components/addPets/AddPets';
 import { Profile } from './Components/Profile/Profile';
-import Pet from './Components/pets/pet/Pet';
 
 function App() {
   return (

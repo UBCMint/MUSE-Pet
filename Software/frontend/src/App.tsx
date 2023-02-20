@@ -16,7 +16,15 @@ function App() {
           <Route path='/pets' element={< Pets />} />
           <Route path='/addPets' element={< AddPets />} />
           <Route path='/Profile' element={< Profile />} />
-          <Route path='/pets/:id' element={< PetPage _id={'test'} name={'test'} focusLevel={0} />} />
+          <Route path='/pets/:id' element={< PetPage 
+          _id={'test'} 
+          name={'test'} 
+          birthDate={'test'}
+          focusLevel={0}
+          happinessLevel={0}
+          isSick = {false}
+          isDead = {false}
+           />} />
         </Routes>
       </div>
     </BrowserRouter>

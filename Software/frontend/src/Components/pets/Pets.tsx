@@ -4,21 +4,23 @@ import { Link } from 'react-router-dom'
 import Pet from './pet/Pet'
 import './Pets.css'
 import PetListModel from '../../Models/PetListModel'
+import PetModel from '../../Models/PetModel'
 import PetNavBar from '../navBar/NavBar'
 import Button from 'react-bootstrap/Button'
 
 const Pets: React.FC<{}> = () => {
-    const defaultPets: PetListModel[] = []
-    const [pets, setPets]: [PetListModel[], (pets: PetListModel[]) => void] = useState(defaultPets)
+    const defaultPets: PetModel[] = []
+    const [pets, setPets]: [PetModel[], (pets: PetModel[]) => void] = useState(defaultPets)
 
     const getPets = async () => {
-        const response = await axios.get<PetListModel[]>('http://localhost:9000/pet')
+        const response = await axios.get<PetModel[]>('http://localhost:9000/pet')
+        // console.log(response.data)
         setPets(response.data)
     }
 
     const handleDelete = async (props: { _id: string }, event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
-        console.log(props._id)
+        // console.log(props._id)
         await axios.delete('http://localhost:9000/pet/' + props._id)
         getPets()
     }
@@ -36,9 +38,14 @@ const Pets: React.FC<{}> = () => {
                 </div>
                 {pets.map((pet) => (
                     <Pet 
+                        key={pet._id}
                         _id={pet._id}
                         name={pet.name}
                         focusLevel={pet.focusLevel}
+                        happinessLevel={pet.happinessLevel}
+                        birthDate={pet.birthDate}
+                        isSick={pet.isSick}
+                        isDead={pet.isDead}
                         handleDelete={handleDelete}
                     />
                 ))}

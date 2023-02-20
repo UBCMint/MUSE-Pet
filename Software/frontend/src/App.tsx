@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Main from './Components/main/Main'
 import Pets from './Components/pets/Pets';
 import AddPets from './Components/addPets/AddPets';
-import { Profile } from './Components/Profile/Profile';
+import { Profile } from './Components/profile/Profile';
+import PetPage from './Components/petPage/PetPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/pets' element={< Pets />} />
           <Route path='/addPets' element={< AddPets />} />
           <Route path='/Profile' element={< Profile />} />
+          <Route path='/pets/:id' element={< PetPage _id={'test'} name={'test'} focusLevel={0} />} />
         </Routes>
       </div>
     </BrowserRouter>

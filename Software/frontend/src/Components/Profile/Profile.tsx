@@ -16,7 +16,7 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
-import { PetNavBar } from '../NavBar/NavBar';
+import { PetNavBar } from '../navBar/NavBar';
 
 export const Profile = () => {
   return (

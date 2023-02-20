@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Pet from './pet/Pet'
 import './Pets.css'
 import PetListModel from '../../Models/PetListModel'
-import PetNavBar from '../NavBar/NavBar'
+import PetNavBar from '../navBar/NavBar'
 import Button from 'react-bootstrap/Button'
 
 const Pets: React.FC<{}> = () => {

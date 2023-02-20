@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import './Pet.css'
 import Button from 'react-bootstrap/Button'
 import { BsFillTrashFill } from 'react-icons/bs'
+import PetPage from '../../petPage/PetPage'
 
 interface Props {
     _id: string
@@ -11,10 +12,16 @@ interface Props {
 }
 
 const Pet: React.FC<Props> = (props) => {
-
     return (
     <div className="pet">
-        <Link to='/pet' style={{ textDecoration: 'none' }}>
+        <Link 
+            to={'/pets/' + props._id} 
+            style={{ textDecoration: 'none' }}
+            state = {{
+                _id: props._id,
+                name: props.name,
+                focusLevel: props.focusLevel
+            }}>
             <h2>{props.name}</h2>
         </Link>
         <div className='focusLevel'>

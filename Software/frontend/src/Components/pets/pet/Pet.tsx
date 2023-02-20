@@ -1,9 +1,17 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import './Pet.css'
-import PetListModel from '../../../Models/PetListModel'
+import Button from 'react-bootstrap/Button'
+import { BsFillTrashFill } from 'react-icons/bs'
 
-const Pet: React.FC<PetListModel> = (props) => {
+interface Props {
+    _id: string
+    name: string
+    focusLevel: number
+    handleDelete: (props: { _id: string }, event: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+const Pet: React.FC<Props> = (props) => {
+
     return (
     <div className="pet">
         <Link to='/pet' style={{ textDecoration: 'none' }}>
@@ -12,6 +20,13 @@ const Pet: React.FC<PetListModel> = (props) => {
         <div className='focusLevel'>
             <h5>Focus Level: {props.focusLevel}</h5>
             <progress value={props.focusLevel} max="100"></progress>
+        </div>
+        <div className='deleteButton'>
+            <Button onClick={
+                (event: React.MouseEvent<HTMLButtonElement>) => {
+                    props.handleDelete(props, event)
+                }
+             } variant="danger"><BsFillTrashFill /></Button>
         </div>
     </div>
     )

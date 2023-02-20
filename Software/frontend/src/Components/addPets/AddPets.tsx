@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import PetModel from '../../Models/PetModel'
+import { PetNavBar } from '../NavBar/NavBar'
 import './AddPets.css'
-import PetListModel from '../../Models/PetListModel'
-import { request } from 'http'
-import { parseJsonText } from 'typescript'
 
 const AddPets: React.FC<{}> = () => {
+
+    const navigate = useNavigate()
+
     const [name, setName]: [string, (name: string) => void] = useState("")
 
     const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()  // prevent submitting default/empty form
         const request = await axios.post('http://localhost:9000/pet', { name: name })
+        console.log(request)    
+        navigate('/pets')
     }
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,6 +24,8 @@ const AddPets: React.FC<{}> = () => {
     }
 
     return (
+        <div>
+            <PetNavBar />
         <div className="addPets">
             <div className='form'>
                 <h1>Create a New Pet</h1>
@@ -32,12 +37,11 @@ const AddPets: React.FC<{}> = () => {
                     <Link to='/pets'>
                         <button id='cancelButton'>Back</button>
                     </Link>
-                    <Link to='/pet'>
-                        <button id='createButton' onClick={handleSubmit}>Create</button>
-                    </Link>
+                    <button id='createButton' onClick={handleSubmit}>Create</button>
                 </div>
             </div>
         </div>
+    </div>
     )
 }
 

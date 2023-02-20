@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import Pet from './pet/Pet'
 import './Pets.css'
 import PetListModel from '../../Models/PetListModel'
+import PetNavBar from '../NavBar/NavBar'
+import Button from 'react-bootstrap/Button'
 
 const Pets: React.FC<{}> = () => {
     const defaultPets: PetListModel[] = []
@@ -14,27 +16,36 @@ const Pets: React.FC<{}> = () => {
         setPets(response.data)
     }
 
+    const handleDelete = async (props: { _id: string }, event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+        console.log(props._id)
+        await axios.delete('http://localhost:9000/pet/' + props._id)
+        getPets()
+    }
+
     useEffect(() => {
         getPets()
     }, [])
 
     return (
-        <div className="pets">
-            <div className='header'>
-                <h1>Tamagochis</h1>
-                <Link to='/addPets' style={{ textDecoration: 'none' }}>
-                    <button>+ Create Pet</button>
-                </Link>
-            </div>
-            {pets.map((pet) => {
-                return (
+        <div>
+            <PetNavBar />
+            <div className="pets">
+                <div className='header'>
+                    <h1>Tamagochis</h1>
+                </div>
+                {pets.map((pet) => (
                     <Pet 
                         _id={pet._id}
                         name={pet.name}
                         focusLevel={pet.focusLevel}
+                        handleDelete={handleDelete}
                     />
-                )
-            })}
+                ))}
+                <Link to='/addPets' style={{ textDecoration: 'none' }}>
+                    <Button variant='info'>Create Pet</Button>
+                </Link>
+            </div>
         </div>
     )
 }

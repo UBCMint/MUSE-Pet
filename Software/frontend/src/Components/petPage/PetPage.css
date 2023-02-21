@@ -1,0 +1,12 @@
+/* // override bootstrap's default button styles only for PetPage.tsx */
+
+
+.text-center .edit-btn {
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    background-color: #32cec6;
+    border-radius: 0.5em;
+    padding: 0.4em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}

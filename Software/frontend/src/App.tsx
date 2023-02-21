@@ -1,6 +1,5 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-// import { BrainChart } from './Components/Charts/BrainChart';
 import Main from './Components/main/Main'
 import Pets from './Components/pets/Pets';
 import AddPets from './Components/addPets/AddPets';
@@ -16,15 +15,15 @@ function App() {
           <Route path='/pets' element={< Pets />} />
           <Route path='/addPets' element={< AddPets />} />
           <Route path='/Profile' element={< Profile />} />
-          <Route path='/pets/:id' element={< PetPage 
-          _id={'test'} 
-          name={'test'} 
-          birthDate={'test'}
-          focusLevel={0}
-          happinessLevel={0}
-          isSick = {false}
-          isDead = {false}
-           />} />
+          <Route path='/pets/:id' element={< PetPage
+            _id={'test'}
+            name={'test'}
+            birthDate={'test'}
+            focusLevel={0}
+            happinessLevel={0}
+            isSick={false}
+            isDead={false}
+          />} />
         </Routes>
       </div>
     </BrowserRouter>

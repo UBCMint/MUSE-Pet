@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Pet from './pet/Pet'
 import './Pets.css'
-import PetListModel from '../../Models/PetListModel'
 import PetModel from '../../Models/PetModel'
 import PetNavBar from '../navBar/NavBar'
 import Button from 'react-bootstrap/Button'
@@ -24,7 +23,7 @@ const Pets: React.FC<{}> = () => {
         await axios.delete('http://localhost:9000/pet/' + props._id)
         getPets()
     }
-
+    
     useEffect(() => {
         getPets()
     }, [])

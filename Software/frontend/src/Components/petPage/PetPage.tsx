@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import axios from 'axios'
 import PetModel from '../../Models/PetModel';
 import PetNavBar from '../navBar/NavBar';
 import './PetPage.css'
 import Button from 'react-bootstrap/Button';
-// import {format, toDate} from 'date-fns';
+import { FiEdit2 } from 'react-icons/fi';
 import { BrainChart } from './charts/BrainChart';
+import EditModal from './editModal/EditModal';
 import {
     MDBCol,
     MDBContainer,
@@ -35,6 +35,11 @@ const PetPage: React.FC<PetModel> = () => {
     const [focusLevel, setFocusLevel] = useState<number>(pet.focusLevel);
     const [birthDate, setBirthDate] = useState<string>(pet.birthDate);
     const [name, setName] = useState<string>(pet.name);
+    const [showModal, setShowModal] = useState(false);
+
+    // const handleClose = () => setShowModal(false);
+    const handleShow = () => setShowModal(true);
+    const toggleModal = () => setShowModal(!showModal);
 
     const stringToDate = (dateString: string) => {
         // dateString is in the format of YYYY-MM-DDT09:12:38.005Z 
@@ -82,7 +87,15 @@ const PetPage: React.FC<PetModel> = () => {
                                     }}
                                 />
                                 <div className="d-flex justify-content-center mt-2 mb-2">
-                                    <Button className="edit-btn" variant='info'>Edit</Button>
+                                    <Button className="edit-btn" variant='info'
+                                        style={{ position: 'absolute', top: '10px', right: '10px' }}
+                                        onClick={handleShow}>
+                                        <FiEdit2 />
+                                    </Button>
+                                    <EditModal
+                                        isOpen={showModal}
+                                        toggle={toggleModal}
+                                    />
                                 </div>
                             </div>
                         </MDBCard>
@@ -128,9 +141,8 @@ const PetPage: React.FC<PetModel> = () => {
                                         <MDBCardText>Status</MDBCardText>
                                     </MDBCol>
                                     <MDBCol sm="9">
-                                        <MDBCardText className="text-muted">{
-                                            isDead ? 'Dead' : 'Alive'
-                                        }</MDBCardText>
+                                        <MDBCardText style={isDead ? { color: 'red' } : { color: 'rgb(36, 203, 56)' }}>
+                                            {isDead ? 'Dead' : 'Alive'}</MDBCardText>
                                     </MDBCol>
                                 </MDBRow>
                             </MDBCardBody>

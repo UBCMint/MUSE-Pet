@@ -2,7 +2,6 @@
     width: 70px;
     height: 70px;
     background-image: url('https://s.pngkit.com/png/small/219-2198087_-img-stardew-valley-animal-sprites.png');  
-    animation: playRow1 3s steps(4) infinite;
 }
 
 @keyframes playRow1 {

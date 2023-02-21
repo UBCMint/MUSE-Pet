@@ -8,4 +8,12 @@ const PetDetails: React.FC<{}> = () => {
     )
 }
 
+enum PetStates {
+    ExtremelyFocused = 5,
+    Focused = 4,
+    Neutral = 3,
+    Relaxed = 2,
+    ExtremelyRelaxed = 1
+}
+
 export default PetDetails

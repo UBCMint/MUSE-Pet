@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import PetNavBar from '../../NavBar/NavBar'
-import './Pets.css'
+import './PetAnimations.css'
 
 const PetAnimations: React.FC<{}> = () => {
 
     const handlePrevClick = () => {
-        
+
     }
 
     const handleNextClick = () => {

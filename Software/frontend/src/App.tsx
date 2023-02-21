@@ -5,6 +5,7 @@ import Main from './Components/main/Main'
 import Pets from './Components/pets/Pets';
 import AddPets from './Components/addPets/AddPets';
 import { Profile } from './Components/Profile/Profile';
+import PetDetails from './Components/pets/petDetails/PetDetails';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={< Main />} />
           <Route path='/pets' element={< Pets />} />
-          <Route path='/pet' element={< Profile />} />
+          <Route path='/pet' element={< PetDetails />} />
           <Route path='/addPets' element={< AddPets />} />
           <Route path='/Profile' element={< Profile />} />
         </Routes>

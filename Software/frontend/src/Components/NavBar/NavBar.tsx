@@ -62,7 +62,6 @@ export const PetNavBar: React.FC<{}> = () => {
                             style={{ marginLeft: '10px' }}
                         />
                     </Form>
-
                 </Navbar.Collapse>
             </Container>
         </Navbar>

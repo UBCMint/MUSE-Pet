@@ -23,3 +23,8 @@
     from { background-Position: -10px -235px; }
     to { background-Position: -300px -235px; }
 }
+
+@keyframes playRow5 {
+    from { background-Position: -10px -310px; }
+    to { background-Position: -300px -310px; }
+}

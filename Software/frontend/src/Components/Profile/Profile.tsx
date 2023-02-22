@@ -22,6 +22,7 @@ export const Profile = () => {
   return (
     <section style={{ backgroundColor: '#eee' }}>
       <PetNavBar />
+      
       <MDBContainer className="py-5">
         <MDBRow>
           <MDBCol>

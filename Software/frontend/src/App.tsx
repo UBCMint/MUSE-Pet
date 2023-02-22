@@ -4,6 +4,7 @@ import Main from './Components/main/Main'
 import Pets from './Components/pets/Pets';
 import AddPets from './Components/addPets/AddPets';
 import { Profile } from './Components/profile/Profile';
+import PetDetails from './Components/pets/petDetails/PetDetails';
 import PetPage from './Components/petPage/PetPage';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={< Main />} />
           <Route path='/pets' element={< Pets />} />
+          <Route path='/pet' element={< PetDetails />} />
           <Route path='/addPets' element={< AddPets />} />
           <Route path='/Profile' element={< Profile />} />
           <Route path='/pets/:id' element={< PetPage

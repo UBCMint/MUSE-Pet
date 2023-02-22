@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import PetNavBar from '../../NavBar/NavBar'
+import PetNavBar from '../../navBar/NavBar'
 import PetAnimations from '../petAnimations/petAnimations'
 import './PetDetails.css'
 

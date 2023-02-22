@@ -1,6 +1,10 @@
-.text-center .edit-btn {
+.modal .title {
+  color: #32cec6;
+}
+
+.modal .save-btn {
     font-size: 1em;
-    color: rgb(255, 255, 255);
+    color: white;
     background-color: #32cec6;
     border-radius: 0.5em;
     padding: 0.4em;
@@ -8,8 +12,8 @@
     margin-bottom: 0.5em;
 }
 
-.text-center .edit-btn:hover {
+.modal .save-btn:hover {
     cursor: pointer;
     background-color: cyan;
-    color: rgb(77, 77, 77);color: grey;
+    color: rgb(77, 77, 77);
 }

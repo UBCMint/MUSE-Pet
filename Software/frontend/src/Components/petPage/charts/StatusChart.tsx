@@ -1,7 +1,6 @@
-import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
-const StatusChart = () => {
+export const StatusChart = () => {
   return (
     <div>
       <Bar 
@@ -21,4 +20,4 @@ const StatusChart = () => {
   )
 }
 
-export default StatusChart
+// export default StatusChart

@@ -31,3 +31,9 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+.main button:hover {
+    cursor: pointer;
+    background-color: cyan;
+    color: rgb(77, 77, 77);
+}

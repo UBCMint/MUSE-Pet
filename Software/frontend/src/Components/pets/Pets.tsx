@@ -49,7 +49,7 @@ const Pets: React.FC<{}> = () => {
                     />
                 ))}
                 <Link to='/addPets' style={{ textDecoration: 'none' }}>
-                    <Button variant='info'>Create Pet</Button>
+                    <Button variant='info' className='create-btn'>Create Pet</Button>
                 </Link>
             </div>
         </div>

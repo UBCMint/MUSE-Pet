@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import PetNavBar from '../../NavBar/NavBar'
+import PetNavBar from '../../navBar/NavBar'
 import './PetAnimations.css'
 
 const PetAnimations: React.FC<{}> = () => {

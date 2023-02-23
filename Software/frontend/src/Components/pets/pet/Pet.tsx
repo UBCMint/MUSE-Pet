@@ -4,17 +4,32 @@ import Button from 'react-bootstrap/Button'
 import { BsFillTrashFill } from 'react-icons/bs'
 
 interface Props {
+    // everything from PetModel.ts but with the addition of handleDelete
     _id: string
     name: string
     focusLevel: number
+    happinessLevel: number
+    birthDate: string
+    isDead: boolean
+    isSick: boolean
     handleDelete: (props: { _id: string }, event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const Pet: React.FC<Props> = (props) => {
-
     return (
     <div className="pet">
-        <Link to='/pet' style={{ textDecoration: 'none' }}>
+        <Link 
+            to={'/pets/' + props._id} 
+            style={{ textDecoration: 'none' }}
+            state = {{
+                _id: props._id,
+                name: props.name,
+                focusLevel: props.focusLevel,
+                happinessLevel: props.happinessLevel,
+                birthDate: props.birthDate,
+                isDead: props.isDead,
+                isSick: props.isSick
+            }}>
             <h2>{props.name}</h2>
         </Link>
         <div className='focusLevel'>

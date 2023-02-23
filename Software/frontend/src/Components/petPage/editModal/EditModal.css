@@ -1,0 +1,19 @@
+.modal .title {
+  color: #32cec6;
+}
+
+.modal .save-btn {
+    font-size: 1em;
+    color: white;
+    background-color: #32cec6;
+    border-radius: 0.5em;
+    padding: 0.4em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.modal .save-btn:hover {
+    cursor: pointer;
+    background-color: cyan;
+    color: rgb(77, 77, 77);
+}

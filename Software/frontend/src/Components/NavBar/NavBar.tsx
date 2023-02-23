@@ -42,7 +42,7 @@ export const PetNavBar: React.FC<{}> = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link as={Link} to="/profile" style={{ color: 'grey'}}>Profile</Nav.Link>
+                        {/* <Nav.Link as={Link} to="/profile" style={{ color: 'grey'}}>Profile</Nav.Link> */}
                         <Nav.Link as={Link} to="/pets" style={{ color: 'grey'}}>My Pets</Nav.Link>
                     </Nav>
                     <Form className="d-flex">

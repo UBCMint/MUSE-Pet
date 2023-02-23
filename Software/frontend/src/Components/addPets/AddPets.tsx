@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { PetNavBar } from '../NavBar/NavBar'
+import { PetNavBar } from '../navBar/NavBar'
 import './AddPets.css'
 
 const AddPets: React.FC<{}> = () => {

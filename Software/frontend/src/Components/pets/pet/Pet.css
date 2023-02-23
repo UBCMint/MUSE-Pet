@@ -1,5 +1,5 @@
 .pet {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: space-between;
     margin: 15px 4.5%;
@@ -11,13 +11,15 @@
 }
 
 .pet .focusLevel {
-    display: flex;  
+    /* make it so that focus level is centered in the box */
+    display: flex;
     align-items: center;
-    margin-right: 1.5em;
+    justify-content: center;
 }
 
 .pet h5 {
     margin-right: 1em;
+    text-align: center;
 }
 
 .pet h2 {
@@ -28,9 +30,13 @@
 }
 
 .pet h2:hover {
-    color: black;
-    text-decoration: underline;
+    color: gray;
+    /* text-decoration: underline; */
     margin-left: 1em;
+}
+
+.pet .deleteButton {
+    margin-right: 0.2em;
 }
 
 progress {

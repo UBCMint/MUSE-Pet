@@ -11,8 +11,7 @@ const PetInfo = (props: {
     birthDate: string,
     isDead: boolean,
 }) => {
-
-    // convert date string in the format YYYY-MM-DDT09:12:38.005Z  to date object
+    // convert date string in the format YYYY-MM-DDT09:12:38.005Z to date object
     const stringToDate = (dateString: string) => {
         const dateArray = dateString.split('-');
         const year = parseInt(dateArray[0]);
@@ -21,13 +20,13 @@ const PetInfo = (props: {
         return new Date(year, month, day);
     }
 
-    // get age in days from birthdate
     const getAge = (birthDate: string) => {
         const today = new Date();
         const birthDateDate = stringToDate(birthDate);
         const diff = Math.abs(today.getTime() - birthDateDate.getTime());
         return Math.floor(diff / (1000 * 3600 * 24));
     }
+
     return (
         <MDBCard className="mb-4">
             <MDBCardBody>

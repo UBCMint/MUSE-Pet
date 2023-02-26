@@ -12,7 +12,7 @@ const AddPets: React.FC<{}> = () => {
     const [name, setName]: [string, (name: string) => void] = useState("")
 
     const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault()  // prevent submitting default/empty form
+        event.preventDefault()  
         const request = await axios.post('http://localhost:9000/pet', { name: name })
         console.log(request)    
         navigate('/pets')

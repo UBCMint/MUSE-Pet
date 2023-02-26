@@ -20,4 +20,4 @@ export const StatusChart = () => {
   )
 }
 
-// export default StatusChart
+export default StatusChart

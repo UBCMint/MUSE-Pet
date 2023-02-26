@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button'
 import { BsFillTrashFill } from 'react-icons/bs'
 
 interface Props {
-    // everything from PetModel.ts but with the addition of handleDelete
     _id: string
     name: string
     focusLevel: number

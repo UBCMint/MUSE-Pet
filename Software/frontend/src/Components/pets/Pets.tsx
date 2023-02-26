@@ -13,13 +13,11 @@ const Pets: React.FC<{}> = () => {
 
     const getPets = async () => {
         const response = await axios.get<PetModel[]>('http://localhost:9000/pet')
-        // console.log(response.data)
         setPets(response.data)
     }
 
     const handleDelete = async (props: { _id: string }, event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
-        // console.log(props._id)
         await axios.delete('http://localhost:9000/pet/' + props._id)
         getPets()
     }

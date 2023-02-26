@@ -10,6 +10,16 @@
     background-repeat: no-repeat;
 }
 
+.addPets h1 {
+    color: #32cec6;
+}
+
+.addPets h3 {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #bfbfbf;
+}
+
 .form {
     width: 800px;
     margin: 30vh 10em;
@@ -27,10 +37,10 @@
 }
 
 .formContent input {
-    border: 2px solid black;
-    border-radius: 1em;
+    border: 2px solid lightgray;
+    border-radius: 0.5em;
     padding: 0.5em 1em;
-    height: 30px;
+    height: 50px;
     width: 100%;
 }
 
@@ -44,13 +54,13 @@
 #cancelButton {
     position: relative;
     margin-right: 3em;
-    padding: 1em 2em;
+    padding: 0.5em 2em;
     background-color: white;
-    color: black;
-    font-weight: bold;
-    font-size: 1em;
-    border: 2px solid black;
-    border-radius: 2em;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: #32cec6; 
+    border: 2px solid #32cec6; 
+    border-radius: 0.6em;
 }
 
 #cancelButton:hover {
@@ -62,13 +72,13 @@
 #createButton {
     position: relative;
     margin-left: 3em;
-    padding: 1em 2em;
-    background-color: white;
-    font-weight: bold;
-    font-size: 1em;
-    color: #32cec6; 
+    padding: 0.5em 2em;
+    background-color: #32cec6;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: white; 
     border: 2px solid #32cec6; 
-    border-radius: 2em;
+    border-radius: 0.6em;
 }
 
 #createButton:hover {

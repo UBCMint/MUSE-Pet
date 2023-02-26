@@ -8,6 +8,9 @@
 }
 
 .main h1 {
+    border-top: 1px solid rgb(200, 194, 194);
+    border-bottom: 1px solid rgb(200, 194, 194);
+    padding: 10px;
     font-size: 5em;
     color: #32cec6;
     position: fixed;
@@ -27,4 +30,10 @@
     bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.main button:hover {
+    cursor: pointer;
+    background-color: cyan;
+    color: rgb(77, 77, 77);
 }

@@ -16,7 +16,7 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
-import { PetNavBar } from '../NavBar/NavBar';
+import { PetNavBar } from '../navBar/NavBar';
 
 export const Profile = () => {
   return (
@@ -28,10 +28,10 @@ export const Profile = () => {
           <MDBCol>
             <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
               <MDBBreadcrumbItem>
-                <Link to="/pets">Home</Link>
+                <Link to="/">Home</Link>
               </MDBBreadcrumbItem>
               <MDBBreadcrumbItem>
-              <Link to="/profile">Profile</Link>
+              <Link to="/pets">Pets</Link>
               </MDBBreadcrumbItem>
               <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
             </MDBBreadcrumb>
@@ -48,8 +48,8 @@ export const Profile = () => {
                   className="rounded-circle"
                   style={{ width: '150px' }}
                   fluid />
-                <p className="text-muted mb-1">MINT Software Developer</p>
-                <p className="text-muted mb-4">Vancouver BC</p>
+                <p className="text-muted mb-1">MINT Pet</p>
+                <p className="text-muted mb-4">Title</p>
                 <div className="d-flex justify-content-center mb-2">
                   <MDBBtn>Follow</MDBBtn>
                   <MDBBtn outline className="ms-1">Message</MDBBtn>

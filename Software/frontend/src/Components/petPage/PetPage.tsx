@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom'
 import axios from 'axios';
 import PetModel from '../../Models/PetModel';
 import PetNavBar from '../navBar/NavBar';
-import Header from './header/Header';
 import PetInfo from './petInfo/PetInfo';
 import './PetPage.css'
 import { BrainChart } from './charts/BrainChart';
@@ -23,7 +22,7 @@ import MainCard from './mainCard/MainCard';
 const PetPage: React.FC<PetModel> = () => {
 
     const location = useLocation();
-    const [pet, setPets] = useState<PetModel>(location.state);  // this is used to get the pet object from the previous page
+    const [pet, setPets] = useState<PetModel>(location.state); 
     const [isDead, setIsDead] = useState<boolean>(pet.isDead);
     const [isSick, setIsSick] = useState<boolean>(pet.isSick);
     const [happinessLevel, setHappinessLevel] = useState<number>(pet.happinessLevel);
@@ -35,7 +34,6 @@ const PetPage: React.FC<PetModel> = () => {
     const handleShow = () => setShowModal(true);
     const toggleModal = () => setShowModal(!showModal);
 
-    // handle pet name change
     const changePetData = async (name: string, status: boolean) => {
         await axios.patch(`http://localhost:9000/pet/${pet._id}`, { name: name, isDead: status });
         setName(name);
@@ -47,7 +45,6 @@ const PetPage: React.FC<PetModel> = () => {
         <section style={{ backgroundColor: '#eee' }}>
             <PetNavBar />
             <MDBContainer className="py-5">
-                <Header name={name} />
                 <MDBRow>
                     <MDBCol lg="4">
                         <MainCard

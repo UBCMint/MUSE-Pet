@@ -14,6 +14,8 @@ import numpy as np  # Module that simplifies computations on matrices
 import matplotlib.pyplot as plt  # Module used for plotting
 from pylsl import StreamInlet, resolve_byprop  # Module to receive EEG data
 import utils  # Our own utility functions
+import time
+import requests
 
 # Handy little enum to make code more readable
 
@@ -139,8 +141,6 @@ if __name__ == "__main__":
                 # else:
                 #     print('Unfocused: ' + str(ratio))
 
-                
-
                 focus_level = beta/alpha
                 if (focus_level < 1):
                     print('Level 1: ' + str(focus_level))
@@ -153,7 +153,8 @@ if __name__ == "__main__":
                 else:
                     print('Congrats you are Level 5 focused: ' + str(focus_level))
                 
-            
+                requests.post('http://localhost:9000/brainData', json={"focusLevel": focus_level, "alpha": alpha, "beta": beta})
+                time.sleep(1500)
 
 
         except KeyboardInterrupt:

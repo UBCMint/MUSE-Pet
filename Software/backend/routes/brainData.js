@@ -13,3 +13,15 @@ router.get('/', async(req,res) => {
         res.send('Error ' + err)
     }
 })
+
+router.post('/', async(req,res) => {
+    try {
+        focusLevel = req.focusLevel
+        alpha = req.alpha
+        beta = req.beta
+        const brainData = {"focusLevel": focusLevel, "alpha": alpha, "beta": beta}
+        res.json(brainData)
+    } catch(err) {
+        res.send('Error')
+    }
+})

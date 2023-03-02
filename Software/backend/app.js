@@ -27,6 +27,9 @@ app.use(express.json())
 const petRouter = require('./routes/pet')
 app.use('/pet', petRouter)
 
+const brainDataRouter = require('./routes/brainData')
+app.use('/brainData')
+
 app.listen(9000, () => {
     console.log('Server started')
 })

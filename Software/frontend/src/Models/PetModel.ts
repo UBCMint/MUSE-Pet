@@ -1,9 +1,10 @@
 interface PetModel {
     _id: string,
     name: string,
-    focusLevel: number,
-    happinessLevel: number,
     birthDate: string,
+    focusLevel: number,
+    tirednessLevel: number,
+    happinessLevel: number,
     isDead: boolean,
     isSick: boolean
 }

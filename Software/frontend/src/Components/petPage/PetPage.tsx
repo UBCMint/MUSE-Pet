@@ -77,7 +77,7 @@ const PetPage: React.FC<PetModel> = () => {
                             toggleModal={toggleModal}
                             changePetData={changePetData}
                         />
-                        <button id={recordingButtonText + 'Button'} onClick={changeRecordingState}>{recordingButtonText}</button>
+                        <button id={recordingButtonText + 'Button'} onClick={changeRecordingState}>{recordingButtonText} recording</button>
                         <h2>{intervalId}</h2>
                         <h2>{recordingInProgress.toString()}</h2>
                         <h2>{brainData.focusLevel.toString()}</h2>

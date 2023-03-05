@@ -6,7 +6,7 @@ import {
 import './Login.css';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
-import { FcOk, FcCancel, FcInfo } from 'react-icons/fc';
+import { FcOk, FcInfo, FcHighPriority } from 'react-icons/fc';
 import { useNavigate } from 'react-router-dom';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -104,7 +104,7 @@ const RegisterPane: React.FC<{}> = () => {
         <label htmlFor='username' className="input-label">
           Username
           <span className={UserNameValid ? "valid" : "hide"}><FcOk /> </span>
-          <span className={UserNameValid || !UserName ? "hide" : "invalid"}><FcCancel /></span>
+          <span className={UserNameValid || !UserName ? "hide" : "invalid"}><FcHighPriority /></span>
         </label>
         <MDBInput
           wrapperClass='mb-4'

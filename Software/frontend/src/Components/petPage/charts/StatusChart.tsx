@@ -1,6 +1,4 @@
 import { Bar } from 'react-chartjs-2'
-import { useState } from 'react';
-import BrainData from '../../../Models/BrainData'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import PetAttributes from '../../../Models/PetAttributes';
 
 ChartJS.register(
   CategoryScale,
@@ -20,7 +19,7 @@ ChartJS.register(
   Legend
 );
 
-export const StatusChart: React.FC<BrainData> = (props: BrainData) => {
+export const StatusChart: React.FC<PetAttributes> = (props: PetAttributes) => {
   const petAttibutes = [props.focusLevel, props.tirednessLevel, props.happinessLevel]
 
   return (

@@ -3,8 +3,6 @@ interface BrainData {
     alpha: number,
     beta: number,
     focusLevel: number,
-    tirednessLevel: number,
-    happinessLevel: number,
 }
 
 export default BrainData

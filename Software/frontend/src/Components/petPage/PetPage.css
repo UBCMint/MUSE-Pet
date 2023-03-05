@@ -15,7 +15,6 @@
 }
 
 #startButton {
-    font-display: "e";
     background-color: #32cec6;
     color: white;
     border: none;
@@ -29,7 +28,6 @@
 }
 
 #stopButton {
-    font-display: "e";
     background-color: white;
     color: #32cec6;
     border: 1px solid #32cec6;

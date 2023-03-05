@@ -1,9 +1,4 @@
 #!python
-
-import sys
-
-sys.path
-sys.executable
 import time
 import random
 import requests
@@ -16,7 +11,7 @@ if __name__ == "__main__":
             alpha = random.randint(0, 100)
             beta = random.randint(0, 100)
 
-            focus_level = beta/alpha
+            focus_level = random.randint(0, 5)
             if (focus_level < 1):
                 print('Level 1: ' + str(focus_level))
             elif(focus_level < 2):
@@ -29,7 +24,7 @@ if __name__ == "__main__":
                 print('Congrats you are Level 5 focused: ' + str(focus_level))
             
             requests.post('http://localhost:9000/brainData', json={"focusLevel": focus_level, "alpha": alpha, "beta": beta})
-            time.sleep(1500)
+            time.sleep(1)
 
 
     except KeyboardInterrupt:

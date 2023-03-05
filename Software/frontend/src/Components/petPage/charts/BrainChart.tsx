@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import BrainData from '../../../Models/BrainData';
 import {
@@ -33,10 +32,12 @@ export const BrainChart: React.FC<BrainData> = (props: BrainData) => {
               label: 'Pet Brain Waves',
               data: petBrainWaves,
               backgroundColor: [
-                '#32cec6'
+                '#239dc3',
+                '#c896b5'
               ],
               borderColor: [
-                '#32cec6'
+                '#239dc3',
+                '#c896b5'
               ],
               borderWidth: 1
             }]

@@ -7,6 +7,7 @@ interface Props {
     _id: string
     name: string
     focusLevel: number
+    tirednessLevel: number,
     happinessLevel: number
     birthDate: string
     isDead: boolean
@@ -24,6 +25,7 @@ const Pet: React.FC<Props> = (props) => {
                 _id: props._id,
                 name: props.name,
                 focusLevel: props.focusLevel,
+                tirednessLevel: props.tirednessLevel,
                 happinessLevel: props.happinessLevel,
                 birthDate: props.birthDate,
                 isDead: props.isDead,

@@ -22,7 +22,7 @@ function App() {
           <Route path='/pets/:id' element={< PetPage
             _id={'test'}
             name={'test'}
-            birthDate={'test'}
+            birthDate={new Date()}
             focusLevel={0}
             tirednessLevel={0}
             happinessLevel={5}

@@ -15,9 +15,6 @@ import {
     MDBRow,
     MDBCard,
     MDBCardBody,
-    MDBCardText,
-    MDBProgress,
-    MDBProgressBar
 } from 'mdb-react-ui-kit';
 
 const PetPage: React.FC<PetModel> = (props: PetModel) => {
@@ -32,7 +29,7 @@ const PetPage: React.FC<PetModel> = (props: PetModel) => {
     const [happinessLevel, setHappinessLevel] = useState<number>(pet.happinessLevel);
     const [tirednessLevel, setTirednessLevel] = useState<number>(pet.tirednessLevel);
     const [focusLevel, setFocusLevel] = useState<number>(pet.focusLevel);
-    const [birthDate, setBirthDate] = useState<string>(pet.birthDate);
+    const [birthDate, setBirthDate] = useState<Date>(pet.birthDate);
     const [name, setName] = useState<string>(pet.name);
     const [showModal, setShowModal] = useState(false);
 
@@ -106,17 +103,6 @@ const PetPage: React.FC<PetModel> = (props: PetModel) => {
                                     <MDBCardBody>
                                         <StatusChart focusLevel={brainData.focusLevel} tirednessLevel={tirednessLevel} happinessLevel={happinessLevel}/>
                                     </MDBCardBody>
-                                    {/* <MDBCardBody>
-                                        <MDBCardText className="mb-1" style={{ fontSize: '.77rem' }}>Focus</MDBCardText>
-                                        <MDBProgress className="rounded">
-                                            <MDBProgressBar width={focusLevel} valuemin={0} valuemax={100} />
-                                        </MDBProgress>
-
-                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Happiness</MDBCardText>
-                                        <MDBProgress className="rounded">
-                                            <MDBProgressBar width={happinessLevel} valuemin={0} valuemax={100} />
-                                        </MDBProgress>
-                                    </MDBCardBody> */}
                                 </MDBCard>
                             </MDBCol>
 

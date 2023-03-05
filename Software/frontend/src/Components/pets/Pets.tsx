@@ -39,6 +39,7 @@ const Pets: React.FC<{}> = () => {
                         _id={pet._id}
                         name={pet.name}
                         focusLevel={pet.focusLevel}
+                        tirednessLevel={pet.tirednessLevel}
                         happinessLevel={pet.happinessLevel}
                         birthDate={pet.birthDate}
                         isSick={pet.isSick}

@@ -36,23 +36,24 @@ const LoginPane: React.FC<{}> = () => {
   const submitLogin = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log(UserName, Password);
-    navigate('/pets');
 
-    // try {
-    //   await axios.post('http://localhost:9000/user',
-    //     { UserName, Password })
-    //     .then((res) => {
-    //       if (res.data.message === 'user already exists') {
-    //         navigate('/');
-    //       }
-    //       else if (res.data.message === 'user does not exist') {
-    //         alert('username is not registered');
-    //       }
-    //     });
-    // } catch (e) {
-    //   alert("no details entered");
-    //   console.log(e);
-    // }
+    try {
+      const response = await axios.post('http://localhost:9000/user',
+        { UserName, Password })
+        .then((res) => {
+          if (res.data.message === 'user already exists') {
+            alert('login successful');
+            navigate('/');
+          }
+          else if (res.data.message === 'user does not exist') {
+            alert('username is not registered');
+          }
+        });
+      console.log(response);
+    } catch (e) {
+      alert("no details entered");
+      console.log(e);
+    }
 
     // clear the form
     setUserName('');
@@ -66,26 +67,26 @@ const LoginPane: React.FC<{}> = () => {
       </div>
       <form>
         <label htmlFor='login-username' className="input-label">Username</label>
-        <MDBInput 
-        wrapperClass='mb-4' 
-        id='login-username' 
-        type='text' 
-        placeholder='enter username'
-        ref={userRef}
-        value={UserName}
-        required
-        onChange={(e) => setUserName(e.target.value)}
+        <MDBInput
+          wrapperClass='mb-4'
+          id='login-username'
+          type='text'
+          placeholder='enter username'
+          ref={userRef}
+          value={UserName}
+          required
+          onChange={(e) => setUserName(e.target.value)}
         />
         <label htmlFor='login-password' className="input-label">Password</label>
-        <MDBInput 
-        wrapperClass='mb-4' 
-        id='login-password'
-        type='password' 
-        placeholder='enter password'
-        ref={userRef}
-        value={Password}
-        required
-        onChange={(e) => setPassword(e.target.value)}
+        <MDBInput
+          wrapperClass='mb-4'
+          id='login-password'
+          type='password'
+          placeholder='enter password'
+          ref={userRef}
+          value={Password}
+          required
+          onChange={(e) => setPassword(e.target.value)}
         />
         <Button
           className="mb-4 w-100 btn btn-lg"

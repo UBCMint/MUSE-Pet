@@ -63,36 +63,30 @@ const RegisterPane: React.FC<{}> = () => {
       return;
     }
 
-    const user = {
-      username: UserName,
-      password: Password
+    try {
+      const response = await axios.post('http://localhost:9000/register', 
+      { username: UserName, password: Password }).then((res) => {
+          if (res.data.message === 'user already exists') {
+            alert('user already exists');
+          }
+          else if (res.data.message === 'new user created') {
+            navigate('/login');
+          }
+        });
+      // clear the form
+      setUserName('');
+      setPassword('');
+      console.log(response);
+    } catch (e) {
+      console.log(e);
     }
 
-    // try {
-    //   const response = await axios.post('http://localhost:9000/user/signup',
-    //     user)
-    //     .then((res) => {
-    //       if (res.data.message === 'user already exists') {
-    //         alert('user already exists');
-    //       }
-    //       else if (res.data.message === 'new user created') {
-    //         navigate('/');
-    //       }
-    //     });
-    //   // clear the form
-    //   setUserName('');
-    //   setPassword('');
-    //   console.log(response);
-    // } catch (e) {
-    //   console.log(e);
-    // }
-
-    console.log(user.username, user.password);
-    // clear the form
-    setUserName('');
-    setPassword('');
-    setConfirmPassword('');
-    navigate('/pets');
+    console.log(UserName, Password);
+    // // clear the form
+    // setUserName('');
+    // setPassword('');
+    // setConfirmPassword('');
+    // navigate('/pets');
   }
 
   return (

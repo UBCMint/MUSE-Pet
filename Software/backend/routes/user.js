@@ -23,29 +23,19 @@ router.get('/:username', async(req,res) => {
 router.post('/', async (req, res) => {
     const{username, password} = req.body 
     
-    try {
-        const checkUser = await User.findOne({username: username})
-        if (checkUser) {
-            res.json({message: "user already exists"})
-            
-        } else {
-            res.json({message: "user does not exist"})
-        }
-    } catch (err) {
-        res.json({message: "user does not exist"})
-    }
+    // check 
 })
 
-router.post("/signup", async (req, res) => {
-    const{username, password} = req.body 
+router.post('/register', async (req, res) => {
+    const{UserName, Password} = req.body 
 
     const user = new User({
-        username: username,
-        password: password
+        username: UserName,
+        password: Password
     })
     
     try {
-        const checkUser = await User.findOne({username: username})
+        const checkUser = await User.findOne({username: UserName})
         if (checkUser) {
             res.json({message: "user already exists"})
             

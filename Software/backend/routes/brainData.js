@@ -24,12 +24,18 @@ router.get('/', async(req,res) => {
 
 router.post('/', async(req,res) => {
     try {
+        alpha = req.body.alpha
+        beta = req.body.beta
+        focusLevel = req.body.focusLevel
+        tirednessLevel = req.body.tirednessLevel 
+        happinessLevel = req.body.happinessLevel
+
         const brainData = {
-            "alpha": req.body.alpha, 
-            "beta": req.body.beta,
-            "focusLevel": req.body.focusLevel, 
-            "tirednessLevel": req.body.tirednessLevel, 
-            "happinessLevel": req.body.happinessLevel,
+            "alpha": alpha, 
+            "beta": beta,
+            "focusLevel": focusLevel, 
+            "tirednessLevel": tirednessLevel, 
+            "happinessLevel": happinessLevel,
         }
         res.json(brainData)
     } catch(err) {

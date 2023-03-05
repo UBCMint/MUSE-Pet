@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-let focusLevel = 0
-let alpha = 0
-let beta = 0
+var focusLevel;
+var alpha;
+var beta;
 
 router.get('/', async(req,res) => {
     try {
@@ -16,9 +16,9 @@ router.get('/', async(req,res) => {
 
 router.post('/', async(req,res) => {
     try {
-        focusLevel = req.focusLevel
-        alpha = req.alpha
-        beta = req.beta
+        focusLevel = req.body.focusLevel
+        alpha = req.body.alpha
+        beta = req.body.beta
         const brainData = {"focusLevel": focusLevel, "alpha": alpha, "beta": beta}
         res.json(brainData)
     } catch(err) {

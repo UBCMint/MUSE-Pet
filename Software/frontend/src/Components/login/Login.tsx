@@ -1,4 +1,4 @@
-import { SetStateAction, useState } from 'react';
+import { SetStateAction, useState, useRef, useEffect } from 'react';
 import {
   MDBContainer,
   MDBTabs,
@@ -6,22 +6,18 @@ import {
   MDBTabsLink,
   MDBTabsContent,
   MDBTabsPane,
-  MDBBtn,
-  MDBIcon,
-  MDBInput,
-  MDBCheckbox
-}
-from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
+} from 'mdb-react-ui-kit';
+import LoginPane from './LoginPane';
+import RegisterPane from './RegisterPane';
+import './Login.css';
 
 const LoginPage: React.FC<{}> = () => {
 
-  const [justifyActive, setJustifyActive] = useState('tab1');;
+  const [justifyActive, setJustifyActive] = useState('tab1');
 
   const handleJustifyClick = (value: SetStateAction<string>) => {
-    if (value === justifyActive) {
+    if (value === justifyActive)
       return;
-    }
 
     setJustifyActive(value);
   };
@@ -31,100 +27,34 @@ const LoginPage: React.FC<{}> = () => {
 
       <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
         <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
+          <MDBTabsLink
+            onClick={() => handleJustifyClick('tab1')}
+            active={justifyActive === 'tab1'}
+            style={justifyActive === 'tab1' ? { backgroundColor: '#32cec6' } : { color: 'rgb(77, 77, 77)', backgroundColor: '#eaf5f4' }}
+          >
             Login
           </MDBTabsLink>
         </MDBTabsItem>
         <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
+          <MDBTabsLink
+            onClick={() => handleJustifyClick('tab2')}
+            active={justifyActive === 'tab2'}
+            style={justifyActive === 'tab2' ? { backgroundColor: '#32cec6' } : { color: 'rgb(77, 77, 77)', backgroundColor: '#eaf5f4' }}
+          >
             Register
           </MDBTabsLink>
         </MDBTabsItem>
       </MDBTabs>
 
       <MDBTabsContent>
-
         <MDBTabsPane show={justifyActive === 'tab1'}>
-
-          <div className="text-center mb-3">
-            <p>Sign in with:</p>
-
-            <div className='d-flex justify-content-between mx-auto' style={{width: '40%'}}>
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='facebook-f' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='twitter' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='google' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='github' size="sm"/>
-              </MDBBtn>
-            </div>
-
-            <p className="text-center mt-3">or:</p>
-          </div>
-
-          <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'/>
-          <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'/>
-
-          <div className="d-flex justify-content-between mx-4 mb-4">
-            <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-            <a href="!#">Forgot password?</a>
-          </div>
-          <Link to='/pets'>
-          <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
-          </Link>
-          <p className="text-center">Not a member? <a href="#!">Register</a></p>
-
+          <LoginPane />
         </MDBTabsPane>
 
         <MDBTabsPane show={justifyActive === 'tab2'}>
-
-          <div className="text-center mb-3">
-            <p>Sign un with:</p>
-
-            <div className='d-flex justify-content-between mx-auto' style={{width: '40%'}}>
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='facebook-f' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='twitter' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='google' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='github' size="sm"/>
-              </MDBBtn>
-            </div>
-
-            <p className="text-center mt-3">or:</p>
-          </div>
-
-          <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text'/>
-          <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='text'/>
-          <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
-          <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
-
-          <div className='d-flex justify-content-center mb-4'>
-            <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
-          </div>
-
-          <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
-
+          <RegisterPane />
         </MDBTabsPane>
-
       </MDBTabsContent>
-
     </MDBContainer>
   );
 }

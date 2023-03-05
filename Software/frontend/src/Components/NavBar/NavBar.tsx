@@ -19,7 +19,7 @@ export const PetNavBar: React.FC<{}> = () => {
         setPets(response.data)
         localStorage.setItem('pets', JSON.stringify(response.data))  // save to local storage
     }
-    
+
     useEffect(() => {
         getPets()
     }, [])
@@ -43,7 +43,8 @@ export const PetNavBar: React.FC<{}> = () => {
                         navbarScroll
                     >
                         {/* <Nav.Link as={Link} to="/profile" style={{ color: 'grey'}}>Profile</Nav.Link> */}
-                        <Nav.Link as={Link} to="/pets" style={{ color: 'grey'}}>My Pets</Nav.Link>
+                        <Nav.Link as={Link} to="/pets" style={{ color: 'grey' }}>My Pets</Nav.Link>
+                        <Nav.Link as={Link} to="/login" style={{ color: 'grey' }}>Sign Out</Nav.Link>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

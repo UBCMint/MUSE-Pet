@@ -27,7 +27,7 @@ export const PetNavBar: React.FC<{}> = () => {
     return (
         <Navbar bg="grey" expand="lg">
             <Container fluid>
-                <Link to="/" style={{ color: 'black', textDecoration: 'none' }}>
+                <Link to="/pets" style={{ color: 'black', textDecoration: 'none' }}>
                     <Navbar.Brand
                         style={{ color: 'white' }}
                     >Hello {

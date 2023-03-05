@@ -28,6 +28,11 @@
     margin: 0.5em;
 }
 
+.pets button:hover {
+    background-color: rgb(221, 18, 18);
+    color: white;
+}
+
 .pets .create-btn:hover {
     cursor: pointer;
     background-color: cyan;

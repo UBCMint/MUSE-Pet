@@ -22,7 +22,8 @@ function App() {
             name={'test'}
             birthDate={'test'}
             focusLevel={0}
-            happinessLevel={0}
+            tirednessLevel={0}
+            happinessLevel={5}
             isSick={false}
             isDead={false}
           />} />

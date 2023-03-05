@@ -39,20 +39,16 @@ const LoginPane: React.FC<{}> = () => {
 
     try {
       const response = await axios.post('http://localhost:9000/user',
-        { UserName, Password })
-        .then((res) => {
-          if (res.data.message === 'user already exists') {
-            alert('login successful');
-            navigate('/');
-          }
-          else if (res.data.message === 'user does not exist') {
-            alert('username is not registered');
-          }
-        });
+        { UserName, Password },
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        }
+      );
       console.log(response);
-    } catch (e) {
-      alert("no details entered");
-      console.log(e);
+      navigate('/pets');
+    } catch (error) {
+      console.log(error);
     }
 
     // clear the form

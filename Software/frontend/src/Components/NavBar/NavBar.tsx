@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import PetListModel from '../../Models/PetListModel';
+import PetModel from '../../Models/PetModel';
 
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -11,11 +11,11 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const PetNavBar: React.FC<{}> = () => {
-    const defaultPets: PetListModel[] = [];
-    const [pets, setPets]: [PetListModel[], (pets: PetListModel[]) => void] = useState(defaultPets)
+    const defaultPets: PetModel[] = [];
+    const [pets, setPets]: [PetModel[], (pets: PetModel[]) => void] = useState(defaultPets)
 
     const getPets = async () => {
-        const response = await axios.get<PetListModel[]>('http://localhost:9000/pet')
+        const response = await axios.get<PetModel[]>('http://localhost:9000/pet')
         setPets(response.data)
         localStorage.setItem('pets', JSON.stringify(response.data))  // save to local storage
     }

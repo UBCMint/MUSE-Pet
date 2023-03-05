@@ -13,23 +13,30 @@ const petSchema = new mongoose.Schema({
     focusLevel: {
         type: Number,
         min: 0,
-        max: 100,
+        max: 5,
         required: true,
-        default: 50
+        default: 0
+    },
+    tirednessLevel: {
+        type: Number,
+        min: 0,
+        max: 5,
+        required: true,
+        default: 0
     },
     happinessLevel: {
         type: Number,
         min: 0,
-        max: 100,
+        max: 5,
         required: true,
-        default: 50
+        default: 5
     },
     isSick: {
         type: Boolean,
         required: true,
         default: false
     },
-    isDead: { // TODO: if too old, it dies, map age to prob to die
+    isDead: {
         type: Boolean,
         required: true,
         default: false

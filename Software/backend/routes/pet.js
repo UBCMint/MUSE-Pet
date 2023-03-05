@@ -23,10 +23,11 @@ router.get('/:id', async(req,res) => {
 router.post('/', async(req,res) => {
     const pet = new Pet({
         name: req.body.name,
+        birthDate: req.body.birthDate,
         focusLevel: req.body.focusLevel,
+        tirednessLevel: req.body.tirednessLevel,
         happinessLevel: req.body.happinessLevel,
         isDead: req.body.isDead,
-        birthDate: req.body.birthDate,
         isSick: req.body.isSick
     })
 

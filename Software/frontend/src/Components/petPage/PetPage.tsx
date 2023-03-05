@@ -7,6 +7,8 @@ import PetInfo from './petInfo/PetInfo';
 import './PetPage.css'
 import { BrainChart } from './charts/BrainChart';
 import { StatusChart } from './charts/StatusChart';
+import MainCard from './mainCard/MainCard';
+import BrainData from '../../Models/BrainData';
 import {
     MDBCol,
     MDBContainer,
@@ -17,12 +19,14 @@ import {
     MDBProgress,
     MDBProgressBar
 } from 'mdb-react-ui-kit';
-import MainCard from './mainCard/MainCard';
 
 const PetPage: React.FC<PetModel> = () => {
-
     const location = useLocation();
+    const [recordingInProgress, setRecordingInProgress] = useState<boolean>(false);
+    const [recordingButtonText, setRecordingButtonText] = useState<string>("start");
+    const [intervalId, setIntervalId] = useState<number>(-1);
     const [pet, setPets] = useState<PetModel>(location.state); 
+    const [brainData, setBrainData] = useState<BrainData>(location.state); 
     const [isDead, setIsDead] = useState<boolean>(pet.isDead);
     const [isSick, setIsSick] = useState<boolean>(pet.isSick);
     const [happinessLevel, setHappinessLevel] = useState<number>(pet.happinessLevel);
@@ -35,10 +39,28 @@ const PetPage: React.FC<PetModel> = () => {
     const toggleModal = () => setShowModal(!showModal);
 
     const changePetData = async (name: string, status: boolean) => {
-        await axios.patch(`http://localhost:9000/pet/${pet._id}`, { name: name, isDead: status });
-        setName(name);
-        setIsDead(status);
-        setPets({ ...pet, name: name, isDead: status });
+        await axios.patch(`http://localhost:9000/pet/${pet._id}`, { name: name, isDead: status })
+        setName(name)
+        setIsDead(status)
+        setPets({ ...pet, name: name, isDead: status })
+    }
+
+    const changeRecordingState = () => {
+        setRecordingInProgress(!recordingInProgress)
+
+        if (recordingInProgress) {
+            clearInterval(intervalId)
+            setRecordingButtonText("start")
+        } else {
+            const recordingInterval = setInterval(getBrainData, 1500)
+            setIntervalId(recordingInterval)
+            setRecordingButtonText("stop")
+        }
+    }
+
+    const getBrainData = async (intervalId: number) => {
+        const response = await axios.get<BrainData>('http://localhost:9000/brainData')
+        setBrainData(response.data)
     }
 
     return (
@@ -55,6 +77,10 @@ const PetPage: React.FC<PetModel> = () => {
                             toggleModal={toggleModal}
                             changePetData={changePetData}
                         />
+                        <button id={recordingButtonText + 'Button'} onClick={changeRecordingState}>{recordingButtonText}</button>
+                        <h2>{intervalId}</h2>
+                        <h2>{recordingInProgress.toString()}</h2>
+                        <h2>{brainData.focusLevel.toString()}</h2>
                     </MDBCol>
                     <MDBCol lg="8">
                         <PetInfo name={name} birthDate={birthDate} isDead={isDead} />
@@ -62,7 +88,7 @@ const PetPage: React.FC<PetModel> = () => {
                             <MDBCol md="6">
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
-                                        <StatusChart />
+                                        <StatusChart {...brainData}/>
                                     </MDBCardBody>
                                     {/* <MDBCardBody>
                                         <MDBCardText className="mb-1" style={{ fontSize: '.77rem' }}>Focus</MDBCardText>
@@ -81,8 +107,7 @@ const PetPage: React.FC<PetModel> = () => {
                             <MDBCol md="6">
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
-                                        <BrainChart />
-                                        
+                                        <BrainChart {...brainData}/>
                                     </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>

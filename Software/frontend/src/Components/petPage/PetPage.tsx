@@ -20,16 +20,17 @@ import {
     MDBProgressBar
 } from 'mdb-react-ui-kit';
 
-const PetPage: React.FC<PetModel> = () => {
+const PetPage: React.FC<PetModel> = (props: PetModel) => {
     const location = useLocation();
     const [recordingInProgress, setRecordingInProgress] = useState<boolean>(false);
     const [recordingButtonText, setRecordingButtonText] = useState<string>("start");
     const [intervalId, setIntervalId] = useState<number>(-1);
-    const [pet, setPets] = useState<PetModel>(location.state); 
+    const [pet, setPets] = useState<PetModel>(props); 
     const [brainData, setBrainData] = useState<BrainData>(location.state); 
     const [isDead, setIsDead] = useState<boolean>(pet.isDead);
     const [isSick, setIsSick] = useState<boolean>(pet.isSick);
     const [happinessLevel, setHappinessLevel] = useState<number>(pet.happinessLevel);
+    const [tirednessLevel, setTirednessLevel] = useState<number>(pet.tirednessLevel);
     const [focusLevel, setFocusLevel] = useState<number>(pet.focusLevel);
     const [birthDate, setBirthDate] = useState<string>(pet.birthDate);
     const [name, setName] = useState<string>(pet.name);
@@ -52,7 +53,7 @@ const PetPage: React.FC<PetModel> = () => {
             clearInterval(intervalId)
             setRecordingButtonText("start")
         } else {
-            const recordingInterval = setInterval(getBrainData, 1500)
+            const recordingInterval = setInterval(getBrainData, 1000)
             setIntervalId(recordingInterval)
             setRecordingButtonText("stop")
         }
@@ -61,6 +62,24 @@ const PetPage: React.FC<PetModel> = () => {
     const getBrainData = async (intervalId: number) => {
         const response = await axios.get<BrainData>('http://localhost:9000/brainData')
         setBrainData(response.data)
+
+        if (brainData.focusLevel < 3 && tirednessLevel > 0) {
+            if (brainData.focusLevel === 1) {
+                setTirednessLevel(tirednessLevel - 0.2)
+            } else {
+                setTirednessLevel(tirednessLevel - 0.1)
+            }
+            setHappinessLevel(5 - tirednessLevel)
+        } else if (brainData.focusLevel >= 3 && tirednessLevel < 5) {
+            if (brainData.focusLevel === 3) {
+                setTirednessLevel(tirednessLevel + 0.05)
+            } else if (brainData.focusLevel === 4) {
+                setTirednessLevel(tirednessLevel + 0.1)
+            } else {
+                setTirednessLevel(tirednessLevel + 0.2)
+            }
+            setHappinessLevel(5 - tirednessLevel)
+        }   
     }
 
     return (
@@ -78,9 +97,6 @@ const PetPage: React.FC<PetModel> = () => {
                             changePetData={changePetData}
                         />
                         <button id={recordingButtonText + 'Button'} onClick={changeRecordingState}>{recordingButtonText} recording</button>
-                        <h2>{intervalId}</h2>
-                        <h2>{recordingInProgress.toString()}</h2>
-                        <h2>{brainData.focusLevel.toString()}</h2>
                     </MDBCol>
                     <MDBCol lg="8">
                         <PetInfo name={name} birthDate={birthDate} isDead={isDead} />
@@ -88,7 +104,7 @@ const PetPage: React.FC<PetModel> = () => {
                             <MDBCol md="6">
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
-                                        <StatusChart {...brainData}/>
+                                        <StatusChart focusLevel={brainData.focusLevel} tirednessLevel={tirednessLevel} happinessLevel={happinessLevel}/>
                                     </MDBCardBody>
                                     {/* <MDBCardBody>
                                         <MDBCardText className="mb-1" style={{ fontSize: '.77rem' }}>Focus</MDBCardText>

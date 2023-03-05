@@ -1,4 +1,6 @@
-//template code
+import { useState } from 'react';
+import { Bar } from 'react-chartjs-2';
+import BrainData from '../../../Models/BrainData';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,8 +10,6 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { useState } from 'react';
-import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
@@ -20,23 +20,31 @@ ChartJS.register(
   Legend
 );
 
-//Only works with static data for now
-export const BrainChart: React.FC<{}> = () => {
-  const labels = ['Delta', 'Theta', 'Alpha', 'Sigma', 'Beta'];
-  const [data, setData] = useState({
-    labels: labels,
-    datasets: [{
-      label: 'Brainwaves',
-      data: [40, 50, 60, 70, 80],
-      backgroundColor: [
-        'rgb(255, 255, 255)'
-      ],
-      borderColor: [
-        'rgb(0, 0, 0)'
-      ],
-      borderWidth: 1
-    }]
-  });
+export const BrainChart: React.FC<BrainData> = (props: BrainData) => {
+  const petBrainWaves = [props.alpha, props.beta]
 
-  return <Bar data={data} />;
+  return (
+    <div>
+      <Bar 
+        data={
+          {
+            labels: ['Alpha Waves', 'Beta Waves'],
+            datasets: [{
+              label: 'Pet Brain Waves',
+              data: petBrainWaves,
+              backgroundColor: [
+                '#32cec6'
+              ],
+              borderColor: [
+                '#32cec6'
+              ],
+              borderWidth: 1
+            }]
+          }
+        }
+        height={250}
+        width={400}
+      />
+    </div>
+  )
 };

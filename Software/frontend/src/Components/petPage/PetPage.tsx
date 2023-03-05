@@ -7,6 +7,8 @@ import PetInfo from './petInfo/PetInfo';
 import './PetPage.css'
 import { BrainChart } from './charts/BrainChart';
 import { StatusChart } from './charts/StatusChart';
+import MainCard from './mainCard/MainCard';
+import BrainData from '../../Models/BrainData';
 import {
     MDBCol,
     MDBContainer,
@@ -17,15 +19,12 @@ import {
     MDBProgress,
     MDBProgressBar
 } from 'mdb-react-ui-kit';
-import MainCard from './mainCard/MainCard';
-import BrainData from '../../Models/BrainData';
 
 const PetPage: React.FC<PetModel> = () => {
-
     const location = useLocation();
-    var intervalId;
     const [recordingInProgress, setRecordingInProgress] = useState<boolean>(false);
     const [recordingButtonText, setRecordingButtonText] = useState<string>("start");
+    const [intervalId, setIntervalId] = useState<number>(-1);
     const [pet, setPets] = useState<PetModel>(location.state); 
     const [brainData, setBrainData] = useState<BrainData>(location.state); 
     const [isDead, setIsDead] = useState<boolean>(pet.isDead);
@@ -46,26 +45,22 @@ const PetPage: React.FC<PetModel> = () => {
         setPets({ ...pet, name: name, isDead: status })
     }
 
-    const startRecording = async () => {
+    const changeRecordingState = () => {
         setRecordingInProgress(!recordingInProgress)
 
         if (recordingInProgress) {
+            clearInterval(intervalId)
             setRecordingButtonText("start")
         } else {
+            const recordingInterval = setInterval(getBrainData, 1500)
+            setIntervalId(recordingInterval)
             setRecordingButtonText("stop")
         }
-
-        const recordingInterval = setInterval(getBrainData, 1500)
-        intervalId = recordingInterval
     }
 
     const getBrainData = async (intervalId: number) => {
-        if (recordingInProgress) {
-            const response = await axios.get<BrainData>('http://localhost:9000/brainData')
-            setBrainData(response.data)
-        } else {
-            clearInterval(intervalId)
-        }
+        const response = await axios.get<BrainData>('http://localhost:9000/brainData')
+        setBrainData(response.data)
     }
 
     return (
@@ -82,10 +77,10 @@ const PetPage: React.FC<PetModel> = () => {
                             toggleModal={toggleModal}
                             changePetData={changePetData}
                         />
-                        <button id={recordingButtonText + 'Button'} onClick={startRecording}>{recordingButtonText}</button>
-                        <h2>`${intervalId}`</h2>
-                        <h2>{recordingInProgress}</h2>
-                        <h2></h2>
+                        <button id={recordingButtonText + 'Button'} onClick={changeRecordingState}>{recordingButtonText}</button>
+                        <h2>{intervalId}</h2>
+                        <h2>{recordingInProgress.toString()}</h2>
+                        <h2>{brainData.focusLevel.toString()}</h2>
                     </MDBCol>
                     <MDBCol lg="8">
                         <PetInfo name={name} birthDate={birthDate} isDead={isDead} />

@@ -88,7 +88,7 @@ const PetPage: React.FC<PetModel> = () => {
                             <MDBCol md="6">
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
-                                        <StatusChart />
+                                        <StatusChart {...brainData}/>
                                     </MDBCardBody>
                                     {/* <MDBCardBody>
                                         <MDBCardText className="mb-1" style={{ fontSize: '.77rem' }}>Focus</MDBCardText>
@@ -107,8 +107,7 @@ const PetPage: React.FC<PetModel> = () => {
                             <MDBCol md="6">
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
-                                        <BrainChart />
-                                        
+                                        <BrainChart {...brainData}/>
                                     </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>

@@ -11,7 +11,7 @@ import LoginPage from './Components/login/Login';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <main className="App">
         <Routes>
           <Route path='/' element={< Main />} />
           <Route path='/login' element={< LoginPage />} />
@@ -29,7 +29,7 @@ function App() {
             isDead={false}
           />} />
         </Routes>
-      </div>
+      </main>
     </BrowserRouter>
   );
 }

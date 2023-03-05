@@ -34,7 +34,7 @@ const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: 'Pet Brain Wave',
     },
   }
 };
@@ -43,37 +43,19 @@ const options = {
 
 //Only works with static data for now
 export const LineChart: React.FC<ChartProps> = (props) => {
-  const labels = ['Delta', 'Theta', 'Alpha', 'Sigma', 'Beta'];
+  const labels = ['-20', '-15', '-10', '-5', '0'];
   const [data, setData] = useState({
     labels: labels,
     datasets: [
       {
-        label: 'Gamma Waves',
-        data: [10, 12, 23, 45, 55, 22],
+        label: 'Beta Waves',
+        data: [9, 120, 3, 242, 32, 32],
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
-        label: 'Beta Waves',
-        data: [9, 12, 3, 242, 32, 32],
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-      {
         label: 'Alpha Waves',
-        data: [9, 12, 5, 242, 32, 32],
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-      {
-        label: 'Theta Waves',
-        data: [9, 12, 3, 242, 32, 32],
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-      {
-        label: 'Delta Waves',
-        data: [9, 12, 3, 242, 32, 32],
+        data: [9, 12, 50, 542, 32, 32],
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },

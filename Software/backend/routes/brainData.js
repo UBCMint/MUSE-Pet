@@ -2,8 +2,6 @@ const express = require('express')
 const router = express.Router()
 
 var focusLevel;
-var tirednessLevel;
-var happinessLevel;
 var alpha;
 var beta;
 
@@ -12,9 +10,7 @@ router.get('/', async(req,res) => {
         const brainData = {
             "alpha": alpha, 
             "beta": beta, 
-            "focusLevel": focusLevel, 
-            "tirednessLevel": tirednessLevel, 
-            "happinessLevel": happinessLevel
+            "focusLevel": focusLevel 
         }
         res.json(brainData)
     } catch(err) {
@@ -27,15 +23,11 @@ router.post('/', async(req,res) => {
         alpha = req.body.alpha
         beta = req.body.beta
         focusLevel = req.body.focusLevel
-        tirednessLevel = req.body.tirednessLevel 
-        happinessLevel = req.body.happinessLevel
 
         const brainData = {
             "alpha": alpha, 
             "beta": beta,
-            "focusLevel": focusLevel, 
-            "tirednessLevel": tirednessLevel, 
-            "happinessLevel": happinessLevel,
+            "focusLevel": focusLevel
         }
         res.json(brainData)
     } catch(err) {

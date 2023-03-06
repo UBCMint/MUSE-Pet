@@ -3,50 +3,60 @@ const { Collection } = require('mongoose')
 const router = express.Router()
 const User = require('../models/user')
 
-router.get('/', async(req,res) => {
+router.get('/', async (req, res) => {
     try {
         const users = await User.find()
         res.json(users)
-    } catch(err) {
+    } catch (err) {
         res.send('Error ' + err)
     }
 })
 
-router.get('/:username', async(req,res) => {
+router.get('/:username', async (req, res) => {
     try {
-        const user = await User.findById(req.params.id)
+        const user = await User.findOne({ username: req.params.username })
         res.json(user)
-    } catch(err) {
+    } catch (err) {
         res.send('Error ' + err)
     }
 })
 
-// router.post('/', async (req, res) => {
-//     const{username, password} = req.body 
-    
-//     // check 
-// })
+router.post('/login', async (req, res) => {
+    try {
+        const checkUserExists = await User.findOne({ username: req.body.username })
+        if (checkUserExists) {
+            if (req.body.password === checkUserExists.password) {
+                res.json({ message: 'Login successful' })
+            } else {
+                res.json({ message: 'Incorrect password' })
+            }
+        } else {
+            res.json({ message: 'User does not exist' })
+        }
+    } catch (err) {
+        res.send('Error ' + err)
+    }
+})
 
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
 
     const user = new User({
         username: req.body.username,
         password: req.body.password,
     })
-    
+
     try {
-        // check if user exists
         const checkUserExists = await User.findOne({
             username: req.body.username,
         })
-        if(checkUserExists) {
-            res.send({status: 'User already exists'})
+        if (checkUserExists) {
+            res.send({ message: 'User already exists' })
         } else {
             const a1 = await user.save()
-            res.send({status: 'User created', data: a1})
+            res.send({ message: 'User created', data: a1 })
         }
-    } catch(err) {
-        res.send({status: 400, message: 'Error'})
+    } catch (err) {
+        res.send('Error ' + err)
     }
 })
 

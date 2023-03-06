@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
         const checkUserExists = await User.findOne({ username: req.body.username })
         if (checkUserExists) {
             if (req.body.password === checkUserExists.password) {
-                res.json({ message: 'Login successful' })
+                res.json({ message: 'Login successful', token : checkUserExists.username })
             } else {
                 res.json({ message: 'Incorrect password' })
             }

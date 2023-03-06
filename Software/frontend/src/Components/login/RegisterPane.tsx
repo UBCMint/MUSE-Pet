@@ -7,6 +7,7 @@ import './Login.css';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import { FcOk, FcInfo, FcHighPriority } from 'react-icons/fc';
+import { Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -31,9 +32,11 @@ const RegisterPane: React.FC<{}> = () => {
   const [confirmPasswordfocus, setConfirmPasswordFocus] = useState(false);
 
   const [checkbox, setCheckbox] = useState(false);
+  const [showUserAlert, setShowUserAlert] = useState(false);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
   useEffect(() => {
-    userRef.current?.focus(); 
+    userRef.current?.focus();
   }, []);
 
   useEffect(() => {
@@ -48,10 +51,21 @@ const RegisterPane: React.FC<{}> = () => {
       setPassword('');
       setConfirmPassword('');
     }
-
     setPasswordValid(PASSWORD_REGEX.test(Password));
     setConfirmPasswordValid(Password === ConfirmPassword);
   }, [Password, ConfirmPassword]);
+  
+  useEffect(() => {
+    if (!showUserAlert) {
+      setShowUserAlert(false);
+    }
+  }, [showUserAlert]);
+
+  useEffect(() => {
+    if (!showSuccessAlert) {
+      setShowSuccessAlert(false);
+    }
+  }, [showSuccessAlert]);
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -63,14 +77,14 @@ const RegisterPane: React.FC<{}> = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:9000/user',
+      const response = await axios.post('http://localhost:9000/user/register',
         { username: UserName, password: Password }).then((res) => {
-          if (res.data.status === 'User already exists') {
-            alert('Username already exists');
+          if (res.data.message === 'User already exists') {
+            setShowUserAlert(true);
           }
           else {
-            alert('user created');
-            navigate('/pets');
+            setShowUserAlert(false);
+            setShowSuccessAlert(true);
           }
         });
       clearForm();
@@ -83,11 +97,23 @@ const RegisterPane: React.FC<{}> = () => {
     setUserName('');
     setPassword('');
     setConfirmPassword('');
-    setCheckbox(!checkbox);    
+    setCheckbox(!checkbox);
   }
 
   return (
     <>
+      <Alert
+        variant="danger"
+        onClose={() => setShowUserAlert(false)} dismissible
+        show={showUserAlert}
+      >Username already exists.
+      </Alert>
+      <Alert
+        variant="success"
+        onClose={() => setShowSuccessAlert(false)} dismissible
+        show={showSuccessAlert}
+      >Registration successful!
+      </Alert>
       <div className="header">
         <h1>Register</h1>
       </div>

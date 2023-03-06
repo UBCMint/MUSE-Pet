@@ -1,11 +1,9 @@
 import { SetStateAction, useState, useRef, useEffect } from 'react';
-import {
-  MDBBtn,
-  MDBInput,
-} from 'mdb-react-ui-kit';
+import { MDBInput } from 'mdb-react-ui-kit';
 import './Login.css';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -15,6 +13,9 @@ const LoginPane: React.FC<{}> = () => {
   const userRef = useRef<HTMLInputElement>(null);
   const [UserName, setUserName] = useState('');
   const [Password, setPassword] = useState('');
+
+  const [showPwdAlert, setShowPwdAlert] = useState(false);
+  const [showUserAlert, setShowUserAlert] = useState(false);
 
   useEffect(() => {
     userRef.current?.focus();
@@ -35,29 +36,41 @@ const LoginPane: React.FC<{}> = () => {
 
   const submitLogin = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    console.log(UserName, Password);
 
     try {
-      const response = await axios.post('http://localhost:9000/user',
-        { UserName, Password },
-        {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
-        }
-      );
-      console.log(response);
-      navigate('/pets');
-    } catch (error) {
-      console.log(error);
+      const response = await axios.post('http://localhost:9000/user/login',
+        { username: UserName, password: Password }).then((res) => {
+          if (res.data.message === 'Incorrect password') {
+            setShowPwdAlert(true);
+          }
+          else if (res.data.message === 'User does not exist') {
+            setShowUserAlert(true);
+          }
+          else if (res.data.message === 'Login successful') {
+            setUserName('');
+            setPassword('');
+            navigate('/pets');
+          }
+        });
+    } catch (err) {
+      console.log(err);
     }
-
-    // clear the form
-    setUserName('');
-    setPassword('');
   }
 
   return (
     <>
+      <Alert
+        variant="danger"
+        onClose={() => setShowPwdAlert(false)} dismissible
+        show={showPwdAlert}
+      >Wrong password.
+      </Alert>
+      <Alert
+        variant="danger"
+        onClose={() => setShowUserAlert(false)} dismissible
+        show={showUserAlert}
+      >Username does not exist. Please register.
+      </Alert>
       <div className="header">
         <h1>Sign In</h1>
       </div>
@@ -79,7 +92,6 @@ const LoginPane: React.FC<{}> = () => {
           id='login-password'
           type='password'
           placeholder='enter password'
-          ref={userRef}
           value={Password}
           required
           onChange={(e) => setPassword(e.target.value)}

@@ -49,8 +49,11 @@ const LoginPane: React.FC<{}> = () => {
           else if (res.data.message === 'Login successful') {
             setUserName('');
             setPassword('');
+            window.localStorage.setItem('token', res.data.token);
+            window.localStorage.setItem('isLoggedIn', 'true');
             navigate('/pets');
           }
+          
         });
     } catch (err) {
       console.log(err);

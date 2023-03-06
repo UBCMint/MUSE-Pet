@@ -11,18 +11,11 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const PetNavBar: React.FC<{}> = () => {
-    const defaultPets: PetModel[] = [];
-    const [pets, setPets]: [PetModel[], (pets: PetModel[]) => void] = useState(defaultPets)
 
-    const getPets = async () => {
-        const response = await axios.get<PetModel[]>('http://localhost:9000/pet')
-        setPets(response.data)
-        localStorage.setItem('pets', JSON.stringify(response.data))  // save to local storage
+    const handleLogout = () => {
+        localStorage.removeItem('isLoggedIn')
+        localStorage.removeItem('token')
     }
-
-    useEffect(() => {
-        getPets()
-    }, [])
 
     return (
         <Navbar bg="grey" expand="lg">
@@ -31,7 +24,7 @@ export const PetNavBar: React.FC<{}> = () => {
                     <Navbar.Brand
                         style={{ color: 'white' }}
                     >Hello {
-                            JSON.parse(localStorage.getItem('pets') || '[]')[0]?.name
+                            localStorage.getItem('token')
                         } 👋
                     </Navbar.Brand>
                 </Link>
@@ -44,7 +37,10 @@ export const PetNavBar: React.FC<{}> = () => {
                     >
                         {/* <Nav.Link as={Link} to="/profile" style={{ color: 'grey'}}>Profile</Nav.Link> */}
                         <Nav.Link as={Link} to="/pets" style={{ color: 'grey' }}>My Pets</Nav.Link>
-                        <Nav.Link as={Link} to="/login" style={{ color: 'grey' }}>Sign Out</Nav.Link>
+                        <Nav.Link as={Link} to="/login"
+                            onClick={handleLogout}
+                            style={{ color: 'grey' }}
+                        >Sign Out</Nav.Link>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

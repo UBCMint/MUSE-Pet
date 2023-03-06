@@ -1,4 +1,5 @@
 const express = require('express')
+const { Collection } = require('mongoose')
 const router = express.Router()
 const User = require('../models/user')
 
@@ -13,39 +14,39 @@ router.get('/', async(req,res) => {
 
 router.get('/:username', async(req,res) => {
     try {
-        const user = await User.findById(req.params.username)
+        const user = await User.findById(req.params.id)
         res.json(user)
     } catch(err) {
         res.send('Error ' + err)
     }
 })
 
-router.post('/', async (req, res) => {
-    const{username, password} = req.body 
+// router.post('/', async (req, res) => {
+//     const{username, password} = req.body 
     
-    // check 
-})
+//     // check 
+// })
 
-router.post('/register', async (req, res) => {
-    const{UserName, Password} = req.body 
+router.post('/', async (req, res) => {
 
     const user = new User({
-        username: UserName,
-        password: Password
+        username: req.body.username,
+        password: req.body.password,
     })
     
     try {
-        const checkUser = await User.findOne({username: UserName})
-        if (checkUser) {
-            res.json({message: "user already exists"})
-            
+        // check if user exists
+        const checkUserExists = await User.findOne({
+            username: req.body.username,
+        })
+        if(checkUserExists) {
+            res.send({status: 'User already exists'})
         } else {
-            res.json({message: "new user created"})
             const a1 = await user.save()
-            res.json(a1)
+            res.send({status: 'User created', data: a1})
         }
-    } catch (err) {
-        res.json({message: "user does not exist"})
+    } catch(err) {
+        res.send({status: 400, message: 'Error'})
     }
 })
 

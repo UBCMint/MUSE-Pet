@@ -33,7 +33,7 @@ const RegisterPane: React.FC<{}> = () => {
   const [checkbox, setCheckbox] = useState(false);
 
   useEffect(() => {
-    userRef.current?.focus();
+    userRef.current?.focus(); 
   }, []);
 
   useEffect(() => {
@@ -44,12 +44,11 @@ const RegisterPane: React.FC<{}> = () => {
   }, [UserName]);
 
   useEffect(() => {
-    if (Password == '') {
+    if (Password === '') {
       setPassword('');
-    }
-    if (ConfirmPassword == '') {
       setConfirmPassword('');
     }
+
     setPasswordValid(PASSWORD_REGEX.test(Password));
     setConfirmPasswordValid(Password === ConfirmPassword);
   }, [Password, ConfirmPassword]);
@@ -64,29 +63,27 @@ const RegisterPane: React.FC<{}> = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:9000/register', 
-      { username: UserName, password: Password }).then((res) => {
-          if (res.data.message === 'user already exists') {
-            alert('user already exists');
+      const response = await axios.post('http://localhost:9000/user',
+        { username: UserName, password: Password }).then((res) => {
+          if (res.data.status === 'User already exists') {
+            alert('Username already exists');
           }
-          else if (res.data.message === 'new user created') {
-            navigate('/login');
+          else {
+            alert('user created');
+            navigate('/pets');
           }
         });
-      // clear the form
-      setUserName('');
-      setPassword('');
-      console.log(response);
-    } catch (e) {
-      console.log(e);
+      clearForm();
+    } catch (err) {
+      console.log(err);
     }
+  }
 
-    console.log(UserName, Password);
-    // // clear the form
-    // setUserName('');
-    // setPassword('');
-    // setConfirmPassword('');
-    // navigate('/pets');
+  const clearForm = () => {
+    setUserName('');
+    setPassword('');
+    setConfirmPassword('');
+    setCheckbox(!checkbox);    
   }
 
   return (
@@ -97,7 +94,7 @@ const RegisterPane: React.FC<{}> = () => {
       <form>
         <label htmlFor='username' className="input-label">
           Username
-          <span className={UserNameValid ? "valid" : "hide"}><FcOk /> </span>
+          <span className={UserNameValid ? "valid" : "hide"}><FcOk /></span>
           <span className={UserNameValid || !UserName ? "hide" : "invalid"}><FcHighPriority /></span>
         </label>
         <MDBInput
@@ -105,6 +102,7 @@ const RegisterPane: React.FC<{}> = () => {
           id='username'
           type='text'
           ref={userRef}
+          value={UserName}
           autoComplete='off'
           placeholder='new username'
           onChange={(e) => setUserName(e.target.value)}
@@ -121,11 +119,16 @@ const RegisterPane: React.FC<{}> = () => {
           Letters, numbers, underscores, hyphens allowed.
         </p>
 
-        <label htmlFor='password' className="input-label">Password</label>
+        <label htmlFor='password' className="input-label">
+          Password
+          <span className={PasswordValid ? "valid" : "hide"}><FcOk /> </span>
+          <span className={PasswordValid || !Password ? "hide" : "invalid"}><FcHighPriority /></span>
+        </label>
         <MDBInput
           wrapperClass='mb-4'
           id='password'
           type='password'
+          ref={userRef}
           value={Password}
           required
           placeholder='type password'
@@ -142,7 +145,11 @@ const RegisterPane: React.FC<{}> = () => {
           Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
         </p>
 
-        <label htmlFor='confirm_pwd' className="input-label">Confirm Password</label>
+        <label htmlFor='confirm_pwd' className="input-label">
+          Confirm Password
+          <span className={PasswordValid && ConfirmPasswordValid ? "valid" : "hide"}><FcOk /> </span>
+          <span className={ConfirmPasswordValid || !ConfirmPassword ? "hide" : "invalid"}><FcHighPriority /></span>
+        </label>
         <MDBInput
           wrapperClass='mb-4'
           id='confirm_pwd'
@@ -165,8 +172,9 @@ const RegisterPane: React.FC<{}> = () => {
           <MDBCheckbox
             name='flexCheck'
             id='flexCheckDefault'
-            label='I have read and agree to the terms'
-            onChange={() => setCheckbox(!checkbox)}
+            label='I have read and agree to the terms.'
+            checked={checkbox}
+            onChange={(e) => setCheckbox(e.target.checked)}
           />
         </div>
 

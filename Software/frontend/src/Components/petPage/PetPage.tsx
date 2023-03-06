@@ -17,13 +17,13 @@ import {
     MDBCardBody,
 } from 'mdb-react-ui-kit';
 
-const PetPage: React.FC<PetModel> = (props: PetModel) => {
+const PetPage: React.FC<PetModel> = () => {
     const location = useLocation();
     const [recordingInProgress, setRecordingInProgress] = useState<boolean>(false);
     const [recordingButtonText, setRecordingButtonText] = useState<string>("start");
     const [intervalId, setIntervalId] = useState<number>(-1);
-    const [pet, setPets] = useState<PetModel>(props); 
-    const [brainData, setBrainData] = useState<BrainData>(location.state); 
+    const [pet, setPets] = useState<PetModel>(location.state as PetModel);
+    const [brainData, setBrainData] = useState<BrainData>(location.state as BrainData);
     const [isDead, setIsDead] = useState<boolean>(pet.isDead);
     const [isSick, setIsSick] = useState<boolean>(pet.isSick);
     const [happinessLevel, setHappinessLevel] = useState<number>(pet.happinessLevel);
@@ -37,7 +37,8 @@ const PetPage: React.FC<PetModel> = (props: PetModel) => {
     const toggleModal = () => setShowModal(!showModal);
 
     const changePetData = async (name: string, status: boolean) => {
-        await axios.patch(`http://localhost:9000/pet/${pet._id}`, { name: name, isDead: status })
+        await axios.patch(`http://localhost:9000/pet/${pet._id}`, 
+        { name: name, isDead: status })
         setName(name)
         setIsDead(status)
         setPets({ ...pet, name: name, isDead: status })
@@ -76,7 +77,7 @@ const PetPage: React.FC<PetModel> = (props: PetModel) => {
                 setTirednessLevel(tirednessLevel + 0.2)
             }
             setHappinessLevel(5 - tirednessLevel)
-        }   
+        }
     }
 
     return (
@@ -93,15 +94,27 @@ const PetPage: React.FC<PetModel> = (props: PetModel) => {
                             toggleModal={toggleModal}
                             changePetData={changePetData}
                         />
-                        <button id={recordingButtonText + 'Button'} onClick={changeRecordingState}>{recordingButtonText} recording</button>
+                        <button
+                            id={recordingButtonText + 'Button'}
+                            onClick={changeRecordingState}>
+                            {recordingButtonText} recording
+                        </button>
                     </MDBCol>
                     <MDBCol lg="8">
-                        <PetInfo name={name} birthDate={birthDate} isDead={isDead} />
+                        <PetInfo
+                            name={name}
+                            birthDate={birthDate}
+                            isDead={isDead} 
+                        />
                         <MDBRow>
                             <MDBCol md="6">
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
-                                        <StatusChart focusLevel={brainData.focusLevel} tirednessLevel={tirednessLevel} happinessLevel={happinessLevel}/>
+                                        <StatusChart
+                                            focusLevel={brainData.focusLevel}
+                                            tirednessLevel={tirednessLevel}
+                                            happinessLevel={happinessLevel} 
+                                        />
                                     </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>
@@ -109,7 +122,7 @@ const PetPage: React.FC<PetModel> = (props: PetModel) => {
                             <MDBCol md="6">
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
-                                        <BrainChart {...brainData}/>
+                                        <BrainChart {...brainData} />
                                     </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>

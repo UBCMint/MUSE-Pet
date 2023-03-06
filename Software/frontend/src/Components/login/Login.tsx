@@ -23,7 +23,7 @@ const LoginPage: React.FC<{}> = () => {
   };
 
   return (
-    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+    <MDBContainer className="p-3 my-5 d-flex flex-column w-50" style={{maxWidth: '600px'}}>
 
       <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
         <MDBTabsItem>

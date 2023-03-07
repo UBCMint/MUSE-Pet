@@ -88,6 +88,7 @@ const PetPage: React.FC<PetModel> = () => {
                     <MDBCol lg="4">
                         <MainCard
                             name={name}
+                            focusLevel={brainData.focusLevel}
                             isDead={isDead}
                             handleShow={handleShow}
                             showModal={showModal}

@@ -14,7 +14,6 @@ const MainCard = (props: {
     handleShow: () => void;
     changePetData: (name: string, status: boolean) => void;
 }) => {
-    const [petFocusLevel, setPetFocusLevel] = useState<number>(1);
     var totalAnimationFrames: number;
     var currentAnimationFrame = 1;
 
@@ -67,11 +66,7 @@ const MainCard = (props: {
 
     return (
         <MDBCard className="mb-4">
-        <div className="text-center">
-            {/* // this where the pet animation will go
-                will this be saved to the database?
-                or will it be a random animation that the user can select from?
-             */}
+        <div className="mainCard">
             <div className={'sprite' + ' focusLevel' + props.focusLevel + ' step' + currentAnimationFrame}></div>
             <div className="d-flex justify-content-center mt-2 mb-2">
                 <Button className="edit-btn" variant='info'
@@ -86,7 +81,7 @@ const MainCard = (props: {
                 />
             </div>
         </div>
-    </MDBCard>
+        </MDBCard>
     )
 }
 

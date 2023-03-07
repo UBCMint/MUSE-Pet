@@ -1,153 +1,143 @@
 /*Animations of displayed image in a sprite sheet*/
 
+.mainCard {
+    width: 100%;
+    height: 50vh;
+    margin: 0 auto;
+}
+
 .sprite {
     background-image: url('https://cdn.discordapp.com/attachments/1064261054592471060/1081479602536460298/Merge.png');
-    position: absolute;
+    background-size: 200px;
     animation-duration: 3s;
     animation-iteration-count: infinite;
-  }
+}
   
 /* First row animation */
 .focusLevel1 {
-height: 42px;
-width: 62px;
-animation-timing-function: steps(2);
+    height: 42px;
+    width: 62px;
+    animation-timing-function: steps(2);
 }
 
 .focusLevel1.step1 {
-background-position: 0 0;
+    background-position: 0 0;
 }
 
 .focusLevel1.step2 {
-background-position: -75px 0;
+    background-position: -75px 0;
 }
 
 /* Second row animation */
 .focusLevel2 {
-height: 55px;
-width: 50px;
-animation-timing-function: steps(3);
+    height: 55px;
+    width: 50px;
+    animation-timing-function: steps(3);
 }
 
 .focusLevel2.step1 {
-background-position: 0 -44px;
+    background-position: 0 -44px;
 }
 
 .focusLevel2.step2 {
-background-position: -75px -44px;
+    background-position: -75px -44px;
 }
 
 .focusLevel2.step3 {
-background-position: -149px -43px;
+    background-position: -149px -43px;
 }
 
 /* Third row animation */
 .focusLevel3 {
-height: 51px;
-width: 36px;
-animation-timing-function: steps(4);
+    height: 51px;
+    width: 36px;
+    animation-timing-function: steps(4);
 }
 
 .focusLevel3.step1 {
-background-position: 0 -99px;
+    background-position: 0 -99px;
 }
 
 .focusLevel3.step2 {
-background-position: -75px -99px;
+    background-position: -75px -99px;
 }
 
 .focusLevel3.step3 {
-background-position: -149px -99px;
+    background-position: -149px -99px;
 }
 
 .focusLevel3.step4 {
-background-position: -223px -99px;
+    background-position: -223px -99px;
 }
 
 /* Fourth row animation */
 .focusLevel4 {
-height: 54px;
-width: 51px;
-animation-timing-function: steps(4);
+    height: 54px;
+    width: 51px;
+    animation-timing-function: steps(4);
 }
 
 .focusLevel4.step1 {
-background-position: 0 -150px;
+    background-position: 0 -150px;
 }
 
 .focusLevel4.step2 {
-background-position: -75px -150px;
+    background-position: -75px -150px;
 }
 
 .focusLevel4.step3 {
-background-position: -149px -150px;
+    background-position: -149px -150px;
 }
 
 .focusLevel4.step4 {
-background-position: -223px -150px;
+    background-position: -223px -150px;
 }
 
 /* Fifth row animation */
 .focusLevel5 {
-height: 53px;
-width: 59px;
-animation-timing-function: steps(3);
+    height: 53px;
+    width: 59px;
+    animation-timing-function: steps(3);
 }
 
 .focusLevel5.step1 {
-background-position: 0 -201px;
+    background-position: 0 -201px;
 }
 
 .focusLevel5.step2 {
-background-position: -71px -201px;
+    background-position: -71px -201px;
 }
 
 .focusLevel5.step3 {
-background-position: -143px -201px;
+    background-position: -143px -201px;
 }
 
 /* Sixth row animation */
 .focusLevel6 {
-height: 48px;
-width: 35px;
-animation-timing-function: steps(1);
+    height: 48px;
+    width: 35px;
+    animation-timing-function: steps(1);
 }
 
 .focusLevel6.step1 {
-background-position: 0 -254px;
+    background-position: 0 -254px;
 }
 
 /* Seventh row animation */
 .focusLevel7 {
-height: 60px;
-width: 80px;
-animation-timing-function: steps(3);
+    height: 60px;
+    width: 80px;
+    animation-timing-function: steps(3);
 }
 
 .focusLevel7.step1 {
-background-position: 0 -304px;
+    background-position: 0 -304px;
 }
 
 .focusLevel7.step2 {
-background-position: -87px -304px;
+    background-position: -87px -304px;
 }
 
 .focusLevel7.step3 {
-background-position: -178px -304px;
+    background-position: -178px -304px;
 }
-
-/* OPTION 2---
-.animation-2 {
-width: 50px;
-height: 55px;
-background-image: url('spritesheet.png');
-animation: animate-2 0.5s steps(3) infinite;
-}
-
-@keyframes animate-2 {
-0% { background-position: 0px 44px; }
-33.33% { background-position: -75px 44px; }
-66.66% { background-position: -150px 44px; }
-100% { background-position: -199px 44px; }
-}
-*/

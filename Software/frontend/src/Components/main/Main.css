@@ -1,40 +1,150 @@
 .main {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-image: url("../../../public/main.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: none;
+}
+
+.masthead {
+    background: linear-gradient(121deg, #1de7dc, #85b1ae, #82b9b6);
+    background-size: 600% 600%;
+
+    animation: AnimationName 5s ease infinite;
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 62%
+    }
+
+    50% {
+        background-position: 100% 39%
+    }
+
+    100% {
+        background-position: 0% 62%
+    }
 }
 
 .main h1 {
     border-top: 1px solid rgb(200, 194, 194);
-    border-bottom: 1px solid rgb(200, 194, 194);
     padding: 10px;
     font-size: 5em;
-    color: #32cec6;
-    position: fixed;
+    color: #556c6c;
+    position: relative;
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
 }
 
+.main h2 {
+    border-bottom: 1px solid rgb(200, 194, 194);
+    font-size: 1.5em;
+    color: white;
+    position: relative;
+    font-style: italic;
+    top: 15%;
+    left: 50%;
+    padding: 10px;
+    transform: translateX(-50%);
+}
+
 .main button {
-    background-color: #32cec6;
+    background-color: #759898;
     color: white;
     border: none;
     border-radius: 0.5em;
     padding: 0.3em 0.8em;
-    position: fixed;
+    position: absolute;
+    margin-top: 1em;
     font-size: 2em;
-    bottom: 20%;
-    left: 50%;
     transform: translateX(-50%);
-}
 
+    @media (max-width: 600px) {
+        font-size: 0.5em;
+    }
+}
 
 .main button:hover {
     cursor: pointer;
     background-color: cyan;
     color: rgb(77, 77, 77);
+}
+header.masthead {
+    position: relative;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+
+    background: linear-gradient(121deg, #1de7dc, #85b1ae, #82b9b6);
+    background-size: 600% 600%;
+
+    animation: AnimationName 5s ease infinite;
+
+}
+
+header.masthead h1,
+header.masthead .h1 {
+    font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+    header.masthead {
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+
+    header.masthead h1,
+    header.masthead .h1 {
+        font-size: 3rem;
+    }
+}
+
+.col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+}
+
+.features-icons {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+
+.features-icons .features-icons-item {
+    max-width: 20rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon {
+    height: 7rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon i {
+    font-size: 4.5rem;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.position-relative {
+    position: relative !important;
+}
+
+.bottom {
+
+    background: linear-gradient(121deg, #1de7dc, #85b1ae, #82b9b6);
+    background-size: 600% 600%;
+
+    animation: AnimationName 5s ease infinite;
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 62%
+    }
+
+    50% {
+        background-position: 100% 39%
+    }
+
+    100% {
+        background-position: 0% 62%
+    }
 }

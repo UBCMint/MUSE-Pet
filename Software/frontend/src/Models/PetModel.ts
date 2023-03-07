@@ -1,7 +1,7 @@
 interface PetModel {
     _id: string,
     name: string,
-    birthDate: string,
+    birthDate: Date,
     focusLevel: number,
     tirednessLevel: number,
     happinessLevel: number,

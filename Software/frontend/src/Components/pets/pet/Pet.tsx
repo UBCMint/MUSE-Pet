@@ -6,16 +6,16 @@ import { BsFillTrashFill } from 'react-icons/bs'
 interface Props {
     _id: string
     name: string
+    birthDate: Date
     focusLevel: number
-    tirednessLevel: number,
+    tirednessLevel: number
     happinessLevel: number
-    birthDate: string
     isDead: boolean
     isSick: boolean
     handleDelete: (props: { _id: string }, event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const Pet: React.FC<Props> = (props) => {
+const Pet: React.FC<Props> = (props: Props) => {
     return (
     <div className="pet">
         <Link 
@@ -24,10 +24,10 @@ const Pet: React.FC<Props> = (props) => {
             state = {{
                 _id: props._id,
                 name: props.name,
+                birthDate: props.birthDate,
                 focusLevel: props.focusLevel,
                 tirednessLevel: props.tirednessLevel,
                 happinessLevel: props.happinessLevel,
-                birthDate: props.birthDate,
                 isDead: props.isDead,
                 isSick: props.isSick
             }}>
@@ -35,7 +35,7 @@ const Pet: React.FC<Props> = (props) => {
         </Link>
         <div className='focusLevel'>
             <h5>Focus Level: {props.focusLevel}</h5>
-            <progress value={props.focusLevel} max="100"></progress>
+            <progress value={props.focusLevel} max="5"></progress>
         </div>
         <div className='deleteButton'>
             <Button onClick={

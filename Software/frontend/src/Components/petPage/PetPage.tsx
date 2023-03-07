@@ -32,8 +32,8 @@ const PetPage: React.FC<PetModel> = (props: PetModel) => {
     const [happinessLevel, setHappinessLevel] = useState<number>(pet.happinessLevel);
     const [tirednessLevel, setTirednessLevel] = useState<number>(pet.tirednessLevel);
     const [focusLevel, setFocusLevel] = useState<number>(pet.focusLevel);
-    const [birthDate, setBirthDate] = useState<string>(pet.birthDate);
-    const [name, setName] = useState<string>(pet.name);
+    const [birthDate, setBirthDate] = useState<Date>(props.birthDate);
+    const [name, setName] = useState<string>(props.name);
     const [showModal, setShowModal] = useState(false);
 
     const handleShow = () => setShowModal(true);
@@ -99,6 +99,7 @@ const PetPage: React.FC<PetModel> = (props: PetModel) => {
                         <button id={recordingButtonText + 'Button'} onClick={changeRecordingState}>{recordingButtonText} recording</button>
                     </MDBCol>
                     <MDBCol lg="8">
+                        <h1>{props.name}</h1>
                         <PetInfo name={name} birthDate={birthDate} isDead={isDead} />
                         <MDBRow>
                             <MDBCol md="6">

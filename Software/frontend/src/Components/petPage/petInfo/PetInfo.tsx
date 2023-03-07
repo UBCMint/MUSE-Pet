@@ -8,22 +8,12 @@ import {
 
 const PetInfo = (props: {
     name: string,
-    birthDate: string,
+    birthDate: Date,
     isDead: boolean,
 }) => {
-    // convert date string in the format YYYY-MM-DDT09:12:38.005Z to date object
-    const stringToDate = (dateString: string) => {
-        const dateArray = dateString.split('-');
-        const year = parseInt(dateArray[0]);
-        const month = parseInt(dateArray[1]) - 1;
-        const day = parseInt(dateArray[2]);
-        return new Date(year, month, day);
-    }
-
-    const getAge = (birthDate: string) => {
+    const getAge = (birthDate: Date) => {
         const today = new Date();
-        const birthDateDate = stringToDate(birthDate);
-        const diff = Math.abs(today.getTime() - birthDateDate.getTime());
+        const diff = Math.abs(today.getTime() - birthDate.getTime());
         return Math.floor(diff / (1000 * 3600 * 24));
     }
 
@@ -56,7 +46,7 @@ const PetInfo = (props: {
                     </MDBCol>
                     <MDBCol sm="9">
                         <MDBCardText className="text-muted">{
-                            stringToDate(props.birthDate).toLocaleDateString()
+                            props.birthDate.toLocaleDateString()
                         }</MDBCardText>
                     </MDBCol>
                 </MDBRow>

@@ -1,0 +1,89 @@
+.mdbcontainer {
+    max-width: fit-content;
+}
+
+.input-label {
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.mdinput label {
+    left:0;
+    text-align: left;
+    width: 100%;
+}
+
+.header {
+    color: #32cec6;
+}
+
+.activeTab {
+    background-color: #32cec6;
+    color: white;
+}
+
+.activeTab:hover {
+    background-color: cyan;
+    color: rgb(77, 77, 77);
+}
+
+.activeTab:active {
+    background-color: cyan;
+    color: rgb(77, 77, 77);
+}
+
+
+/* // override react boostrap button css */
+.btn {
+    background-color: #32cec6;
+    color: white;
+    border: none;
+}
+
+.btn:disabled {
+    background-color: #32cec6;
+    color: white;
+    border: none;
+}
+
+.btn:hover {
+    background-color: cyan;
+    color: rgb(77, 77, 77);
+}
+
+/* register tab conditional css */
+
+.instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    text-align: left;
+    bottom: -10px;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}

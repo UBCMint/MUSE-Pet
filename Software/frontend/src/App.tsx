@@ -6,13 +6,17 @@ import AddPets from './Components/addPets/AddPets';
 import { Profile } from './Components/profile/Profile';
 import PetDetails from './Components/pets/petDetails/PetDetails';
 import PetPage from './Components/petPage/PetPage';
+import LoginPage from './Components/login/Login';
+
+const isLoggedIn = window.localStorage.getItem('isLoggedIn');  
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <main className="App">
         <Routes>
-          <Route path='/' element={< Main />} />
+          <Route path='/' element={isLoggedIn ? <Pets/> : <Main/>} />
+          <Route path='/login' element={< LoginPage />} />
           <Route path='/pets' element={< Pets />} />
           <Route path='/pet' element={< PetDetails />} />
           <Route path='/addPets' element={< AddPets />} />
@@ -20,7 +24,7 @@ function App() {
           <Route path='/pets/:id' element={< PetPage
             _id={'test'}
             name={'test'}
-            birthDate={'test'}
+            birthDate={new Date()}
             focusLevel={0}
             tirednessLevel={0}
             happinessLevel={5}
@@ -28,7 +32,7 @@ function App() {
             isDead={false}
           />} />
         </Routes>
-      </div>
+      </main>
     </BrowserRouter>
   );
 }

@@ -7,9 +7,9 @@ interface Props {
     _id: string
     name: string
     focusLevel: number
-    tirednessLevel: number,
+    tirednessLevel: number
     happinessLevel: number
-    birthDate: string
+    birthDate: Date
     isDead: boolean
     isSick: boolean
     handleDelete: (props: { _id: string }, event: React.MouseEvent<HTMLButtonElement>) => void

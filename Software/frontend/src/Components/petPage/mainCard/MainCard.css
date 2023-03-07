@@ -1,0 +1,153 @@
+/*https://cdn.discordapp.com/attachments/1064261054592471060/1081479602536460298/Merge.png*/
+
+.sprite {
+    background-image: url('https://cdn.discordapp.com/attachments/1064261054592471060/1081479602536460298/Merge.png');
+    position: absolute;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+  
+  /* First row animation */
+  .first {
+    height: 42px;
+    width: 62px;
+    animation-timing-function: steps(2);
+  }
+  
+  .first.step1 {
+    background-position: 0 0;
+  }
+  
+  .first.step2 {
+    background-position: -75px 0;
+  }
+  
+  /* Second row animation */
+  .second {
+    height: 55px;
+    width: 50px;
+    animation-timing-function: steps(3);
+  }
+  
+  .second.step1 {
+    background-position: 0 -44px;
+  }
+  
+  .second.step2 {
+    background-position: -75px -44px;
+  }
+  
+  .second.step3 {
+    background-position: -149px -43px;
+  }
+  
+  /* Third row animation */
+  .third {
+    height: 51px;
+    width: 36px;
+    animation-timing-function: steps(4);
+  }
+  
+  .third.step1 {
+    background-position: 0 -99px;
+  }
+  
+  .third.step2 {
+    background-position: -75px -99px;
+  }
+  
+  .third.step3 {
+    background-position: -149px -99px;
+  }
+  
+  .third.step4 {
+    background-position: -223px -99px;
+  }
+  
+  /* Fourth row animation */
+  .fourth {
+    height: 54px;
+    width: 51px;
+    animation-timing-function: steps(4);
+  }
+  
+  .fourth.step1 {
+    background-position: 0 -150px;
+  }
+  
+  .fourth.step2 {
+    background-position: -75px -150px;
+  }
+  
+  .fourth.step3 {
+    background-position: -149px -150px;
+  }
+  
+  .fourth.step4 {
+    background-position: -223px -150px;
+  }
+  
+  /* Fifth row animation */
+  .fifth {
+    height: 53px;
+    width: 59px;
+    animation-timing-function: steps(3);
+  }
+  
+  .fifth.step1 {
+    background-position: 0 -201px;
+  }
+  
+  .fifth.step2 {
+    background-position: -71px -201px;
+  }
+  
+  .fifth.step3 {
+    background-position: -143px -201px;
+  }
+  
+  /* Sixth row animation */
+  .sixth {
+    height: 48px;
+    width: 35px;
+    animation-timing-function: steps(1);
+  }
+  
+  .fifth.step3 {
+    background-position: 0 -254px;
+  }
+  
+  /* Seventh row animation */
+  .seventh {
+    height: 60px;
+    width: 80px;
+    animation-timing-function: steps(3);
+  }
+  
+  .seventh.step1 {
+    background-position: 0 -304px;
+  }
+  
+  .seventh.step2 {
+    background-position: -87px -304px;
+  }
+  
+  .seventh.step3 {
+    background-position: -178px -304px;
+  }
+  
+  /* OPTION 2---
+  .animation-2 {
+    width: 50px;
+    height: 55px;
+    background-image: url('spritesheet.png');
+    animation: animate-2 0.5s steps(3) infinite;
+  }
+  
+  @keyframes animate-2 {
+    0% { background-position: 0px 44px; }
+    33.33% { background-position: -75px 44px; }
+    66.66% { background-position: -150px 44px; }
+    100% { background-position: -199px 44px; }
+  }
+  */

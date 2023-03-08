@@ -23,7 +23,7 @@ const MainCard = (props: {
             toggleAnimationFrames(totalAnimationFrames);
         }, 2000);
     }, [])
-    
+
     const toggleAnimationFrames = (totalFrames: number): void => {
         if (currentAnimationFrame < totalFrames) {
             currentAnimationFrame++
@@ -35,7 +35,7 @@ const MainCard = (props: {
     const getTotalFrames = (focusLevel: number): number => {
         let totalFrames = 0;
 
-        switch(focusLevel) {
+        switch (focusLevel) {
             case 1:
                 totalFrames = 2;
                 break;
@@ -66,21 +66,21 @@ const MainCard = (props: {
 
     return (
         <MDBCard className="mb-4">
-        <div className="mainCard">
-            <div className={'sprite' + ' focusLevel' + props.focusLevel + ' step' + currentAnimationFrame}></div>
-            <div className="d-flex justify-content-center mt-2 mb-2">
-                <Button className="edit-btn" variant='info'
-                    style={{ position: 'absolute', top: '10px', right: '10px' }}
-                    onClick={props.handleShow}>
-                    <FiEdit2 />
-                </Button>
-                <EditModal
-                    isOpen={props.showModal}
-                    toggle={props.toggleModal}
-                    changePetData={props.changePetData}
-                />
+            <div className="mainCard">
+                <div className={'sprite' + ' focusLevel' + props.focusLevel + ' step' + currentAnimationFrame}></div>
+                <div className="d-flex justify-content-center mt-2 mb-2">
+                    <Button className="edit-btn" variant='info'
+                        style={{ position: 'absolute', top: '10px', right: '10px' }}
+                        onClick={props.handleShow}>
+                        <FiEdit2 />
+                    </Button>
+                    <EditModal
+                        isOpen={props.showModal}
+                        toggle={props.toggleModal}
+                        changePetData={props.changePetData}
+                    />
+                </div>
             </div>
-        </div>
         </MDBCard>
     )
 }

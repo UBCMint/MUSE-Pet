@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Main.css'
+import './Wave.css'
 import Button from 'react-bootstrap/esm/Button'
 import { LandingNavBar } from '../main/LandingNavBar'
 import Container from 'react-bootstrap/Container';
@@ -8,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import { FcHeadset } from 'react-icons/fc';
 import { FaBrain } from 'react-icons/fa';
 import { GoGraph } from 'react-icons/go';
+import { FaGithub, FaInstagram, FaYoutube} from 'react-icons/fa'
 
 const Main: React.FC<{}> = () => {
     return (
@@ -15,21 +17,22 @@ const Main: React.FC<{}> = () => {
             <LandingNavBar />
             <body>
                 <header className="masthead">
-                    <div className="container position-relative">
-                        <div className="row justify-content-center">
-                            <div className="main">
-                                <h1>MUSE Pet</h1>
-                                <h2>UBC Multifaceted Innovation in NeuroTechnology</h2>
-                                <Link to='/login'>
-                                    <Button id='mainButton' variant='info'>Start</Button>
-                                </Link>
-        
-                            </div>
-
-                        </div>
+                    <div className="main">
+                        <h1>Muse Pet</h1>
+                        <h2>UBC Multifaceted Innovation in NeuroTechnology
+                            <br />
+                            <a href='https://github.com/UBCMint/MUSE-Pet' className='text-white'><FaGithub /></a>
+                            <span>  </span>
+                            <a href="https://www.instagram.com/ubcmint/?hl=en" className='text-primary'><FaInstagram/></a>
+                            <span>  </span>
+                            <a href="https://www.youtube.com/@mintubc1309" className='text-danger'><FaYoutube/></a>
+                        </h2>
+                        <Link to='/login'>
+                            <Button id='mainButton' variant='info'>Start</Button>
+                        </Link>
                     </div>
                 </header>
-                <div className = 'bottom'>
+                <div className='bottom'>
                     <Container className="features-icons text-center">
                         <Row className='Row'>
                             <div className="col-lg-4">
@@ -64,6 +67,12 @@ const Main: React.FC<{}> = () => {
                     </Container>
                 </div>
             </body>
+            <footer>
+                <div className="waves">
+                    <div className="wave" id="wave2"></div>
+                    <div className="wave" id="wave4"></div>
+                </div>
+            </footer>
         </>
     )
 }

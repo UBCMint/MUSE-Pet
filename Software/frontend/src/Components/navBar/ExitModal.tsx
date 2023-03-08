@@ -31,7 +31,9 @@ const ExitModal = (
                     <Button variant="secondary" onClick={props.toggle}>
                         Stay
                     </Button>
-                    <Button variant="warning" onClick={handleLogout}>
+                    <Button variant="warning" onClick={handleLogout}
+                    style = {{backgroundColor: '#DC4C64'}}
+                    >
                         Exit
                     </Button>
                 </Modal.Footer>

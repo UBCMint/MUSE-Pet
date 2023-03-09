@@ -1,3 +1,11 @@
+.petPage {
+    height: 100vh;
+    overflow: auto;
+    background-image: url("../../../public/main.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .text-center .edit-btn {
     font-size: 1em;
     color: rgb(255, 255, 255);

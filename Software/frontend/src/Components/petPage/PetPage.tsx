@@ -25,7 +25,6 @@ const PetPage: React.FC<PetModel> = () => {
     const [pet, setPets] = useState<PetModel>(location.state as PetModel);
     const [brainData, setBrainData] = useState<BrainData>(location.state as BrainData);
     const [isDead, setIsDead] = useState<boolean>(pet.isDead);
-    const [isSick, setIsSick] = useState<boolean>(pet.isSick);
     const [happinessLevel, setHappinessLevel] = useState<number>(pet.happinessLevel);
     const [tirednessLevel, setTirednessLevel] = useState<number>(pet.tirednessLevel);
     const [focusLevel, setFocusLevel] = useState<number>(pet.focusLevel);
@@ -51,7 +50,7 @@ const PetPage: React.FC<PetModel> = () => {
             clearInterval(intervalId)
             setRecordingButtonText("start")
         } else {
-            const recordingInterval = setInterval(getBrainData, 1000)
+            const recordingInterval = setInterval(getBrainData, 2000)
             setIntervalId(recordingInterval)
             setRecordingButtonText("stop")
         }
@@ -81,7 +80,7 @@ const PetPage: React.FC<PetModel> = () => {
     }
 
     return (
-        <section style={{ backgroundColor: '#eee' }}>
+        <section className='petPage'>
             <PetNavBar />
             <MDBContainer className="py-5">
                 <MDBRow>

@@ -39,25 +39,11 @@ const MainCard = (props: {
             case 1:
                 totalFrames = 2;
                 break;
-            case 2:
-                totalFrames = 3;
-                break;
-            case 3:
-                totalFrames = 4;
-                break;
-            case 4:
-                totalFrames = 4;
-                break;
             case 5:
                 totalFrames = 3;
                 break;
-            case 6:
-                totalFrames = 1;
-                break;
-            case 7:
-                totalFrames = 3;
-                break;
             default:
+                totalFrames = 4;
                 break;
         }
 
@@ -67,7 +53,8 @@ const MainCard = (props: {
     return (
         <MDBCard className="mb-4">
         <div className="mainCard">
-            <div className={'sprite' + ' focusLevel' + props.focusLevel + ' step' + currentAnimationFrame}></div>
+            <div className={'sprite' + ' focusLevel' + props.focusLevel + ' step' + currentAnimationFrame}>
+            </div>
             <div className="d-flex justify-content-center mt-2 mb-2">
                 <Button className="edit-btn" variant='info'
                     style={{ position: 'absolute', top: '10px', right: '10px' }}

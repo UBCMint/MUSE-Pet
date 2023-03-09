@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-image: url("../../../public/main.png");
+    background-image: url('https://img.freepik.com/free-vector/low-poly-brain-design-with-connecting-dots_1048-6319.jpg?w=996&t=st=1678234558~exp=1678235158~hmac=8efd37a435a0bc2421f3e84b9502f87fc6aa2a664705d85bdf3e3d418ef6501c');
     background-size: cover;
     background-repeat: no-repeat;
 }

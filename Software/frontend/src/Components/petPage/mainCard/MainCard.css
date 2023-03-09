@@ -1,143 +1,87 @@
 /*Animations of displayed image in a sprite sheet*/
-
 .mainCard {
     width: 100%;
     height: 50vh;
-    margin: 0 auto;
+    background-color: #f6f6f6;
 }
 
 .sprite {
-    background-image: url('https://cdn.discordapp.com/attachments/1064261054592471060/1081479602536460298/Merge.png');
-    background-size: 200px;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
+    height: inherit;
+    width: inherit;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
   
 /* First row animation */
-.focusLevel1 {
-    height: 42px;
-    width: 62px;
-    animation-timing-function: steps(2);
-}
-
 .focusLevel1.step1 {
-    background-position: 0 0;
+    background-image: url('../../../../public/images/petsprites1.1.png');
 }
 
 .focusLevel1.step2 {
-    background-position: -75px 0;
+    background-image: url('../../../../public/images/petsprites1.2.png');
 }
 
 /* Second row animation */
-.focusLevel2 {
-    height: 55px;
-    width: 50px;
-    animation-timing-function: steps(3);
-}
-
 .focusLevel2.step1 {
-    background-position: 0 -44px;
+    background-image: url('../../../../public/images/petsprites2.1.png');
 }
 
 .focusLevel2.step2 {
-    background-position: -75px -44px;
+    background-image: url('../../../../public/images/petsprites2.2.png');
 }
 
 .focusLevel2.step3 {
-    background-position: -149px -43px;
+    background-image: url('../../../../public/images/petsprites2.3.png');
+}
+
+.focusLevel2.step4 {
+    background-image: url('../../../../public/images/petsprites2.4.png');
 }
 
 /* Third row animation */
-.focusLevel3 {
-    height: 51px;
-    width: 36px;
-    animation-timing-function: steps(4);
-}
-
 .focusLevel3.step1 {
-    background-position: 0 -99px;
+    background-image: url('../../../../public/images/petsprites3.1.png');
 }
 
 .focusLevel3.step2 {
-    background-position: -75px -99px;
+    background-image: url('../../../../public/images/petsprites3.2.png');
 }
 
 .focusLevel3.step3 {
-    background-position: -149px -99px;
+    background-image: url('../../../../public/images/petsprites3.3.png');
 }
 
 .focusLevel3.step4 {
-    background-position: -223px -99px;
+    background-image: url('../../../../public/images/petsprites3.4.png');
 }
 
 /* Fourth row animation */
-.focusLevel4 {
-    height: 54px;
-    width: 51px;
-    animation-timing-function: steps(4);
-}
-
 .focusLevel4.step1 {
-    background-position: 0 -150px;
+    background-image: url('../../../../public/images/petsprites4.1.png');
 }
 
 .focusLevel4.step2 {
-    background-position: -75px -150px;
+    background-image: url('../../../../public/images/petsprites4.2.png');
 }
 
 .focusLevel4.step3 {
-    background-position: -149px -150px;
+    background-image: url('../../../../public/images/petsprites4.3.png');
 }
 
 .focusLevel4.step4 {
-    background-position: -223px -150px;
+    background-image: url('../../../../public/images/petsprites4.4.png');
 }
 
 /* Fifth row animation */
-.focusLevel5 {
-    height: 53px;
-    width: 59px;
-    animation-timing-function: steps(3);
-}
-
 .focusLevel5.step1 {
-    background-position: 0 -201px;
+    background-image: url('../../../../public/images/petsprites5.1.png');
 }
 
 .focusLevel5.step2 {
-    background-position: -71px -201px;
+    background-image: url('../../../../public/images/petsprites5.2.png');
 }
 
 .focusLevel5.step3 {
-    background-position: -143px -201px;
-}
-
-/* Sixth row animation */
-.focusLevel6 {
-    height: 48px;
-    width: 35px;
-    animation-timing-function: steps(1);
-}
-
-.focusLevel6.step1 {
-    background-position: 0 -254px;
-}
-
-/* Seventh row animation */
-.focusLevel7 {
-    height: 60px;
-    width: 80px;
-    animation-timing-function: steps(3);
-}
-
-.focusLevel7.step1 {
-    background-position: 0 -304px;
-}
-
-.focusLevel7.step2 {
-    background-position: -87px -304px;
-}
-
-.focusLevel7.step3 {
-    background-position: -178px -304px;
+    background-image: url('../../../../public/images/petsprites5.3.png');
 }

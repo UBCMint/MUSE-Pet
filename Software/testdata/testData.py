@@ -24,7 +24,7 @@ if __name__ == "__main__":
                 print('Congrats you are Level 5 focused: ' + str(focus_level))
             
             requests.post('http://localhost:9000/brainData', json={"focusLevel": focus_level, "alpha": alpha, "beta": beta})
-            time.sleep(6)
+            time.sleep(2)
 
 
     except KeyboardInterrupt:

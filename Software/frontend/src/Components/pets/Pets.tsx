@@ -33,6 +33,9 @@ const Pets: React.FC<{}> = () => {
                 <div className='header'>
                     <h1>Tamagochis</h1>
                 </div>
+                <Link to='/addPets' style={{ textDecoration: 'none' }}>
+                    <Button variant='info' className='create-btn'>Create Pet</Button>
+                </Link>
                 {pets.map((pet) => (
                     <Pet 
                         key={pet._id}
@@ -47,9 +50,6 @@ const Pets: React.FC<{}> = () => {
                         handleDelete={handleDelete}
                     />
                 ))}
-                <Link to='/addPets' style={{ textDecoration: 'none' }}>
-                    <Button variant='info' className='create-btn'>Create Pet</Button>
-                </Link>
             </div>
         </div>
     )

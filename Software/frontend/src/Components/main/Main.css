@@ -2,32 +2,11 @@
     background: none;
 }
 
-.masthead {
-    background: linear-gradient(121deg, #1de7dc, #85b1ae, #82b9b6);
-    background-size: 600% 600%;
-
-    animation: AnimationName 5s ease infinite;
-}
-
-@keyframes AnimationName {
-    0% {
-        background-position: 0% 62%
-    }
-
-    50% {
-        background-position: 100% 39%
-    }
-
-    100% {
-        background-position: 0% 62%
-    }
-}
-
 .main h1 {
-    border-top: 1px solid rgb(200, 194, 194);
+    /* border-top: 1px solid rgb(200, 194, 194); */
     padding: 10px;
     font-size: 5em;
-    color: #556c6c;
+    color: white;
     position: relative;
     top: 15%;
     left: 50%;
@@ -37,9 +16,10 @@
 .main h2 {
     border-bottom: 1px solid rgb(200, 194, 194);
     font-size: 1.5em;
-    color: white;
+    color: #c6d5d4;
     position: relative;
     font-style: italic;
+    width: fit-content;
     top: 15%;
     left: 50%;
     padding: 10px;
@@ -47,7 +27,6 @@
 }
 
 .main button {
-    background-color: #759898;
     color: white;
     border: none;
     border-radius: 0.5em;
@@ -67,22 +46,18 @@
     background-color: cyan;
     color: rgb(77, 77, 77);
 }
+
 header.masthead {
     position: relative;
     background-size: cover;
     padding-top: 8rem;
     padding-bottom: 8rem;
-
-    background: linear-gradient(121deg, #1de7dc, #85b1ae, #82b9b6);
-    background-size: 600% 600%;
-
-    animation: AnimationName 5s ease infinite;
-
-}
-
-header.masthead h1,
-header.masthead .h1 {
-    font-size: 2rem;
+    background-image: url('https://img.freepik.com/free-vector/low-poly-brain-design-with-connecting-dots_1048-6319.jpg?w=996&t=st=1678234558~exp=1678235158~hmac=8efd37a435a0bc2421f3e84b9502f87fc6aa2a664705d85bdf3e3d418ef6501c');
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 @media (min-width: 768px) {
@@ -128,7 +103,7 @@ header.masthead .h1 {
 }
 
 .bottom {
-
+    background-color: #d5e4e3;
     background: linear-gradient(121deg, #1de7dc, #85b1ae, #82b9b6);
     background-size: 600% 600%;
 

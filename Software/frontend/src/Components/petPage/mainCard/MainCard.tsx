@@ -32,7 +32,7 @@ const MainCard = (props: {
     const getTotalFrames = (focusLevel: number): number => {
         let totalFrames = 0;
 
-        switch(focusLevel) {
+        switch (focusLevel) {
             case 1:
                 totalFrames = 2;
                 break;

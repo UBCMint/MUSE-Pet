@@ -51,7 +51,7 @@ const MainCard = (props: {
     return (
         <MDBCard className="mb-4">
             <div className="mainCard">
-                <div className={`sprite focusLevel${props.focusLevel} step${currentAnimationFrame}`}></div>
+                <div className={`sprite focusLevel${Math.floor(props.focusLevel)} step${currentAnimationFrame}`}></div>
                 <div className="d-flex justify-content-center mt-2 mb-2">
                     <Button className="edit-btn" variant='info'
                         style={{ position: 'absolute', top: '10px', right: '10px' }}

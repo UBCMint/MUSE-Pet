@@ -142,18 +142,18 @@ if __name__ == "__main__":
                 #     print('Unfocused: ' + str(ratio))
 
                 focus_level = beta/alpha
-                if (focus_level < 1):
+                if (focus_level < 0.75):
                     print('Level 1: ' + str(focus_level))
-                elif(focus_level < 2):
+                elif(focus_level < 1.25):
                     print('Level 2: ' + str(focus_level))
-                elif(focus_level < 3):
+                elif(focus_level < 1.75):
                     print('Level 3: ' + str(focus_level))
-                elif(focus_level < 4):
+                elif(focus_level < 2):
                     print('Level 4: ' + str(focus_level))
                 else:
                     print('Congrats you are Level 5 focused: ' + str(focus_level))
                 
-                requests.post('http://localhost:9000/brainData', json={"focusLevel": focus_level, "alpha": alpha, "beta": beta})
+                requests.post('http://localhost:9000/brainData', json={"focusLevel": focus_level * 2.5, "alpha": alpha, "beta": beta})
                 time.sleep(2)
 
 

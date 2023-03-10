@@ -17,6 +17,15 @@ import {
     MDBCardBody,
 } from 'mdb-react-ui-kit';
 
+interface BrainDataAndLevels {
+    _id: string,
+    alpha: number,
+    beta: number,
+    focusLevel: number,
+    tirednessLevel: number,
+    happinessLevel: number
+}
+
 const PetPage: React.FC<PetModel> = () => {
     const location = useLocation();
     const [recordingInProgress, setRecordingInProgress] = useState<boolean>(false);
@@ -25,9 +34,8 @@ const PetPage: React.FC<PetModel> = () => {
     const [pet, setPets] = useState<PetModel>(location.state as PetModel);
     const [brainData, setBrainData] = useState<BrainData>(location.state as BrainData);
     const [isDead, setIsDead] = useState<boolean>(pet.isDead);
-    const [isSick, setIsSick] = useState<boolean>(pet.isSick);
-    const [happinessLevel, setHappinessLevel] = useState<number>(pet.happinessLevel);
-    const [tirednessLevel, setTirednessLevel] = useState<number>(pet.tirednessLevel);
+    const [happinessLevel, setHappinessLevel] = useState<number>(location.state.happinessLevel);
+    const [tirednessLevel, setTirednessLevel] = useState<number>(location.state.tirednessLevel);
     const [focusLevel, setFocusLevel] = useState<number>(pet.focusLevel);
     const [birthDate, setBirthDate] = useState<Date>(pet.birthDate);
     const [name, setName] = useState<string>(pet.name);
@@ -51,7 +59,7 @@ const PetPage: React.FC<PetModel> = () => {
             clearInterval(intervalId)
             setRecordingButtonText("start")
         } else {
-            const recordingInterval = setInterval(getBrainData, 1000)
+            const recordingInterval = setInterval(getBrainData, 2000)
             setIntervalId(recordingInterval)
             setRecordingButtonText("stop")
         }
@@ -59,29 +67,30 @@ const PetPage: React.FC<PetModel> = () => {
 
     const getBrainData = async (intervalId: number) => {
         const response = await axios.get<BrainData>('http://localhost:9000/brainData')
-        setBrainData(response.data)
 
-        if (brainData.focusLevel < 3 && tirednessLevel > 0) {
-            if (brainData.focusLevel === 1) {
+        if (response.data.focusLevel < 3 && tirednessLevel > 0.2) {
+            if (response.data.focusLevel === 1) {
                 setTirednessLevel(tirednessLevel - 0.2)
             } else {
                 setTirednessLevel(tirednessLevel - 0.1)
             }
             setHappinessLevel(5 - tirednessLevel)
-        } else if (brainData.focusLevel >= 3 && tirednessLevel < 5) {
-            if (brainData.focusLevel === 3) {
-                setTirednessLevel(tirednessLevel + 0.05)
-            } else if (brainData.focusLevel === 4) {
+        } else if (response.data.focusLevel >= 3 && tirednessLevel < 4.7) {
+            if (response.data.focusLevel === 3) {
                 setTirednessLevel(tirednessLevel + 0.1)
-            } else {
+            } else if (response.data.focusLevel === 4) {
                 setTirednessLevel(tirednessLevel + 0.2)
+            } else {
+                setTirednessLevel(tirednessLevel + 0.3)
             }
             setHappinessLevel(5 - tirednessLevel)
         }
+
+        setBrainData(response.data)
     }
 
     return (
-        <section style={{ backgroundColor: '#eee' }}>
+        <section className='petPage'>
             <PetNavBar />
             <MDBContainer className="py-5">
                 <MDBRow>

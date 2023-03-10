@@ -35,10 +35,6 @@
     background-image: url('../../../../public/images/petsprites2.3.png');
 }
 
-.focusLevel2.step4 {
-    background-image: url('../../../../public/images/petsprites2.4.png');
-}
-
 /* Third row animation */
 .focusLevel3.step1 {
     background-image: url('../../../../public/images/petsprites3.1.png');

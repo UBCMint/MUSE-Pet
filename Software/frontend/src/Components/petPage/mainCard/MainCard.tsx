@@ -14,18 +14,18 @@ const MainCard = (props: {
     handleShow: () => void;
     changePetData: (name: string, status: boolean) => void;
 }) => {
-    var currentAnimationFrame = 1;
+    const [currentAnimationFrame, setCurrentAnimationFrame] = useState(0);
 
     useEffect(() => {
         const totalAnimationFrames = getTotalFrames(props.focusLevel)
-        const t = setInterval(toggleAnimationFrames, 500, totalAnimationFrames);
-    }, [])
+        const t = setTimeout(toggleAnimationFrames, 500, totalAnimationFrames);
+    }, [currentAnimationFrame])
     
     const toggleAnimationFrames = (totalFrames: number): void => {
         if (currentAnimationFrame < totalFrames) {
-            currentAnimationFrame = currentAnimationFrame + 1
+            setCurrentAnimationFrame(currentAnimationFrame + 1)
         } else {
-            currentAnimationFrame = 1
+            setCurrentAnimationFrame(1)
         }
     }
 
@@ -36,6 +36,7 @@ const MainCard = (props: {
             case 1:
                 totalFrames = 2;
                 break;
+            case 2:
             case 5:
                 totalFrames = 3;
                 break;

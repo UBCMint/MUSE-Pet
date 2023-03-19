@@ -13,7 +13,6 @@ export const PetNavBar: React.FC<{}> = () => {
     const [showExitModal, setShowExitModal] = useState<boolean>(false);
     const toggleExitModal = () => setShowExitModal(!showExitModal);
 
-
     return (
         <><ExitModal 
         isOpen={showExitModal} 
@@ -32,7 +31,6 @@ export const PetNavBar: React.FC<{}> = () => {
                         className="me-auto my-2 my-lg-0"
                         navbarScroll
                     >
-                        {/* <Nav.Link as={Link} to="/profile" style={{ color: 'grey'}}>Profile</Nav.Link> */}
                         <Nav.Link as={Link} to="/pets" style={{ color: 'grey' }}>My Pets</Nav.Link>
                         <Nav.Link onClick={() => toggleExitModal()} style={{ color: 'grey' }}>Sign Out</Nav.Link>
                     </Nav>

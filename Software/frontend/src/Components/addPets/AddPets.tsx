@@ -6,7 +6,6 @@ import { PetNavBar } from '../navBar/NavBar'
 import './AddPets.css'
 
 const AddPets: React.FC<{}> = () => {
-
     const navigate = useNavigate()
 
     const [name, setName]: [string, (name: string) => void] = useState("")

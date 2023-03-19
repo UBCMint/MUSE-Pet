@@ -1,7 +1,7 @@
 .petPage {
     height: 100vh;
     overflow: auto;
-    background-image: url("../../../public/main.png");
+    background-image: url("../../../public/images/petPage.png");
     background-size: cover;
     background-repeat: no-repeat;
 }

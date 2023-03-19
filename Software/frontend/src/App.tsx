@@ -22,8 +22,8 @@ function App() {
           <Route path='/addPets' element={< AddPets />} />
           <Route path='/Profile' element={< Profile />} />
           <Route path='/pets/:id' element={< PetPage
-            _id={'test'}
-            name={'test'}
+            _id={'id'}
+            name={'name'}
             birthDate={new Date()}
             focusLevel={0}
             tirednessLevel={0}

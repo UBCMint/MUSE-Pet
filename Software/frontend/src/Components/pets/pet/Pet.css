@@ -1,62 +1,61 @@
 .pet {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 15px 4.5%;
-    box-shadow: 2px 2px 10px lightgray;
-    border: 1px black;
-    border-radius: 1em;
-    background-color: white;
-    width: 90vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 4.5%;
+  box-shadow: 2px 2px 10px lightgray;
+  border: 1px black;
+  border-radius: 1em;
+  background-color: white;
+  width: 90vw;
 }
 
 .pet .focusLevel {
-    /* make it so that focus level is centered in the box */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* make it so that focus level is centered in the box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pet h5 {
-    margin-right: 1em;
-    margin-top: 0.3em;
-    text-align: center;
+  margin-right: 1em;
+  margin-top: 0.3em;
+  text-align: center;
 }
 
 .pet h2 {
-    font-size: 1.5em;
-    color: black;
-    text-decoration: none;
-    margin-left: 1em;
-    margin-top: 0.2em;
-    text-align: left;
-    width: 4vw;
+  font-size: 1.5em;
+  color: black;
+  text-decoration: none;
+  margin-left: 1em;
+  margin-top: 0.2em;
+  text-align: left;
+  width: 4vw;
 }
 
 .pet h2:hover {
-    color: gray;
-    margin-left: 1em;
+  color: gray;
+  margin-left: 1em;
 }
 
 .pet .deleteButton {
-    margin-right: 0.7em;
-    margin-top: 0.2em;
+  margin-right: 0.7em;
+  margin-top: 0.2em;
 }
 
 progress {
-    margin-top: 0.1em;
-    height: 10px;
-    -webkit-appearance: none;
-    right: 7%;
+  margin-top: 0.1em;
+  height: 10px;
+  -webkit-appearance: none;
+  right: 7%;
 }
 
-progress::-webkit-progress-bar { 
-    background-color: #f1f1f1; 
-    border-radius: 5px; 
+progress::-webkit-progress-bar {
+  background-color: #f1f1f1;
+  border-radius: 5px;
 }
 
-progress::-webkit-progress-value { 
-    background-color: #32cec6; 
-    border-radius: 5px;
+progress::-webkit-progress-value {
+  background-color: #32cec6;
+  border-radius: 5px;
 }
-

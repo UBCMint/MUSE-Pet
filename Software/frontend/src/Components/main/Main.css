@@ -1,125 +1,125 @@
 .main {
-    background: none;
+  background: none;
 }
 
 .main h1 {
-    /* border-top: 1px solid rgb(200, 194, 194); */
-    padding: 10px;
-    font-size: 5em;
-    color: white;
-    position: relative;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
+  /* border-top: 1px solid rgb(200, 194, 194); */
+  padding: 10px;
+  font-size: 5em;
+  color: white;
+  position: relative;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .main h2 {
-    border-bottom: 1px solid rgb(200, 194, 194);
-    font-size: 1.5em;
-    color: #c6d5d4;
-    position: relative;
-    font-style: italic;
-    width: fit-content;
-    top: 15%;
-    left: 50%;
-    padding: 10px;
-    transform: translateX(-50%);
+  border-bottom: 1px solid rgb(200, 194, 194);
+  font-size: 1.5em;
+  color: #c6d5d4;
+  position: relative;
+  font-style: italic;
+  width: fit-content;
+  top: 15%;
+  left: 50%;
+  padding: 10px;
+  transform: translateX(-50%);
 }
 
 .main button {
-    color: white;
-    border: none;
-    border-radius: 0.5em;
-    padding: 0.3em 0.8em;
-    position: absolute;
-    margin-top: 1em;
-    font-size: 2em;
-    transform: translateX(-50%);
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.3em 0.8em;
+  position: absolute;
+  margin-top: 1em;
+  font-size: 2em;
+  transform: translateX(-50%);
 
-    @media (max-width: 600px) {
-        font-size: 0.5em;
-    }
+  @media (max-width: 600px) {
+    font-size: 0.5em;
+  }
 }
 
 .main button:hover {
-    cursor: pointer;
-    background-color: cyan;
-    color: rgb(77, 77, 77);
+  cursor: pointer;
+  background-color: cyan;
+  color: rgb(77, 77, 77);
 }
 
 header.masthead {
-    position: relative;
-    background-size: cover;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    background-image: url('https://img.freepik.com/free-vector/low-poly-brain-design-with-connecting-dots_1048-6319.jpg?w=996&t=st=1678234558~exp=1678235158~hmac=8efd37a435a0bc2421f3e84b9502f87fc6aa2a664705d85bdf3e3d418ef6501c');
-    background-repeat: no-repeat;
-    background-position: center;
-    /* background-attachment: fixed; */
-    background-size: cover;
-    background-attachment: fixed;
+  position: relative;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background-image: url("https://img.freepik.com/free-vector/low-poly-brain-design-with-connecting-dots_1048-6319.jpg?w=996&t=st=1678234558~exp=1678235158~hmac=8efd37a435a0bc2421f3e84b9502f87fc6aa2a664705d85bdf3e3d418ef6501c");
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-attachment: fixed; */
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 @media (min-width: 768px) {
-    header.masthead {
-        padding-top: 12rem;
-        padding-bottom: 12rem;
-    }
+  header.masthead {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
 
-    header.masthead h1,
-    header.masthead .h1 {
-        font-size: 3rem;
-    }
+  header.masthead h1,
+  header.masthead .h1 {
+    font-size: 3rem;
+  }
 }
 
 .col-lg-4 {
-    flex: 0 0 auto;
-    width: 33.33333333%;
+  flex: 0 0 auto;
+  width: 33.33333333%;
 }
 
 .features-icons {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 
 .features-icons .features-icons-item {
-    max-width: 20rem;
+  max-width: 20rem;
 }
 
 .features-icons .features-icons-item .features-icons-icon {
-    height: 7rem;
+  height: 7rem;
 }
 
 .features-icons .features-icons-item .features-icons-icon i {
-    font-size: 4.5rem;
+  font-size: 4.5rem;
 }
 
 .d-flex {
-    display: flex !important;
+  display: flex !important;
 }
 
 .position-relative {
-    position: relative !important;
+  position: relative !important;
 }
 
 .bottom {
-    background-color: #d5e4e3;
-    background: linear-gradient(121deg, #1de7dc, #85b1ae, #82b9b6);
-    background-size: 600% 600%;
+  background-color: #d5e4e3;
+  background: linear-gradient(121deg, #1de7dc, #85b1ae, #82b9b6);
+  background-size: 600% 600%;
 
-    animation: AnimationName 5s ease infinite;
+  animation: AnimationName 5s ease infinite;
 }
 
 @keyframes AnimationName {
-    0% {
-        background-position: 0% 62%
-    }
+  0% {
+    background-position: 0% 62%;
+  }
 
-    50% {
-        background-position: 100% 39%
-    }
+  50% {
+    background-position: 100% 39%;
+  }
 
-    100% {
-        background-position: 0% 62%
-    }
+  100% {
+    background-position: 0% 62%;
+  }
 }

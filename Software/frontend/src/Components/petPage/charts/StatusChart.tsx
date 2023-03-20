@@ -1,4 +1,4 @@
-import { Bar } from 'react-chartjs-2'
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,8 +7,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import PetAttributes from '../../../Models/PetAttributes';
+} from "chart.js";
+import PetAttributes from "../../../Models/PetAttributes";
 
 ChartJS.register(
   CategoryScale,
@@ -20,28 +20,28 @@ ChartJS.register(
 );
 
 export const StatusChart: React.FC<PetAttributes> = (props: PetAttributes) => {
-  const petAttibutes = [props.focusLevel, props.tirednessLevel, props.happinessLevel]
+  const petAttibutes = [
+    props.focusLevel,
+    props.tirednessLevel,
+    props.happinessLevel,
+  ];
 
   return (
-    <Bar 
-        data={
+    <Bar
+      data={{
+        labels: ["Focus Level", "Tiredness Level", "Happiness Level"],
+        datasets: [
           {
-            labels: ['Focus Level', 'Tiredness Level', 'Happiness Level'],
-            datasets: [{
-              label: 'Pet Statuses',
-              data: petAttibutes,
-              backgroundColor: [
-                '#32cec6'
-              ],
-              borderColor: [
-                '#32cec6'
-              ],
-              borderWidth: 1
-            }]
-          }
-        }
-        height={250}
-        width={400}
-      />
-  )
-}
+            label: "Pet Statuses",
+            data: petAttibutes,
+            backgroundColor: ["#32cec6"],
+            borderColor: ["#32cec6"],
+            borderWidth: 1,
+          },
+        ],
+      }}
+      height={250}
+      width={400}
+    />
+  );
+};

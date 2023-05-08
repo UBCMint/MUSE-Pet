@@ -1,0 +1,6 @@
+numpy
+matplotlib==3.4.2
+Streamlit==1.5.0
+resolve_byprop
+utils
+requests
